@@ -7,15 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		26AEA52F244346A300354567 /* CustomNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AEA52E244346A300354567 /* CustomNavController.swift */; };
+		26C0B1702442D8F900EC1471 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C0B16F2442D8F900EC1471 /* Question.swift */; };
+		26C0B1722442D94100EC1471 /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C0B1712442D94100EC1471 /* Topic.swift */; };
+		26C0B1762442E2F000EC1471 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C0B1742442E2F000EC1471 /* RoundedView.swift */; };
+		26C0B1772442E2F000EC1471 /* ToastAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C0B1752442E2F000EC1471 /* ToastAlert.swift */; };
+		26C0B17A2442E3BD00EC1471 /* ScenarioVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C0B1792442E3BD00EC1471 /* ScenarioVC.swift */; };
+		26C0B17C2442E3D500EC1471 /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C0B17B2442E3D500EC1471 /* StoryViewController.swift */; };
 		26E0AEDB243E8BEE006E9A08 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E0AEDA243E8BEE006E9A08 /* AppDelegate.swift */; };
 		26E0AEDD243E8BEE006E9A08 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E0AEDC243E8BEE006E9A08 /* SceneDelegate.swift */; };
-		26E0AEDF243E8BEE006E9A08 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E0AEDE243E8BEE006E9A08 /* ViewController.swift */; };
-		26E0AEE2243E8BEE006E9A08 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26E0AEE0243E8BEE006E9A08 /* Main.storyboard */; };
+		26E0AEDF243E8BEE006E9A08 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E0AEDE243E8BEE006E9A08 /* MainViewController.swift */; };
 		26E0AEE5243E8BEE006E9A08 /* HelpingHarper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 26E0AEE3243E8BEE006E9A08 /* HelpingHarper.xcdatamodeld */; };
 		26E0AEE7243E8BF5006E9A08 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26E0AEE6243E8BF5006E9A08 /* Assets.xcassets */; };
 		26E0AEEA243E8BF5006E9A08 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26E0AEE8243E8BF5006E9A08 /* LaunchScreen.storyboard */; };
 		26E0AEF5243E8BF6006E9A08 /* HelpingHarperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E0AEF4243E8BF6006E9A08 /* HelpingHarperTests.swift */; };
 		26E0AF00243E8BF6006E9A08 /* HelpingHarperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E0AEFF243E8BF6006E9A08 /* HelpingHarperUITests.swift */; };
+		26FE146B2442E70B0008BA1E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26E0AEE0243E8BEE006E9A08 /* Main.storyboard */; };
+		26FE146E2442FC800008BA1E /* ScenarioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FE146D2442FC800008BA1E /* ScenarioTableViewCell.swift */; };
+		26FE147024433EFC0008BA1E /* StoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FE146F24433EFC0008BA1E /* StoryTableViewCell.swift */; };
+		26FE14722443420E0008BA1E /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FE14712443420E0008BA1E /* QuestionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,10 +46,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		26AEA52E244346A300354567 /* CustomNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavController.swift; sourceTree = "<group>"; };
+		26C0B16F2442D8F900EC1471 /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		26C0B1712442D94100EC1471 /* Topic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
+		26C0B1742442E2F000EC1471 /* RoundedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
+		26C0B1752442E2F000EC1471 /* ToastAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToastAlert.swift; sourceTree = "<group>"; };
+		26C0B1792442E3BD00EC1471 /* ScenarioVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioVC.swift; sourceTree = "<group>"; };
+		26C0B17B2442E3D500EC1471 /* StoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
 		26E0AED7243E8BEE006E9A08 /* HelpingHarper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelpingHarper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26E0AEDA243E8BEE006E9A08 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		26E0AEDC243E8BEE006E9A08 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		26E0AEDE243E8BEE006E9A08 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		26E0AEDE243E8BEE006E9A08 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		26E0AEE1243E8BEE006E9A08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		26E0AEE4243E8BEE006E9A08 /* HelpingHarper.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HelpingHarper.xcdatamodel; sourceTree = "<group>"; };
 		26E0AEE6243E8BF5006E9A08 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,6 +68,9 @@
 		26E0AEFB243E8BF6006E9A08 /* HelpingHarperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HelpingHarperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		26E0AEFF243E8BF6006E9A08 /* HelpingHarperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpingHarperUITests.swift; sourceTree = "<group>"; };
 		26E0AF01243E8BF6006E9A08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		26FE146D2442FC800008BA1E /* ScenarioTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioTableViewCell.swift; sourceTree = "<group>"; };
+		26FE146F24433EFC0008BA1E /* StoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTableViewCell.swift; sourceTree = "<group>"; };
+		26FE14712443420E0008BA1E /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +98,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		26C0B16E2442D89C00EC1471 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				26C0B16F2442D8F900EC1471 /* Question.swift */,
+				26C0B1712442D94100EC1471 /* Topic.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		26C0B1732442E2C600EC1471 /* Supporting Views */ = {
+			isa = PBXGroup;
+			children = (
+				26C0B1742442E2F000EC1471 /* RoundedView.swift */,
+				26C0B1752442E2F000EC1471 /* ToastAlert.swift */,
+				26AEA52E244346A300354567 /* CustomNavController.swift */,
+			);
+			path = "Supporting Views";
+			sourceTree = "<group>";
+		};
+		26C0B1782442E38C00EC1471 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				26E0AEDE243E8BEE006E9A08 /* MainViewController.swift */,
+				26C0B1792442E3BD00EC1471 /* ScenarioVC.swift */,
+				26C0B17B2442E3D500EC1471 /* StoryViewController.swift */,
+				26FE14712443420E0008BA1E /* QuestionViewController.swift */,
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
 		26E0AECE243E8BEE006E9A08 = {
 			isa = PBXGroup;
 			children = (
@@ -101,9 +151,12 @@
 		26E0AED9243E8BEE006E9A08 /* HelpingHarper */ = {
 			isa = PBXGroup;
 			children = (
+				26FE146C2442FC4C0008BA1E /* Cells */,
+				26C0B1782442E38C00EC1471 /* View Controller */,
+				26C0B1732442E2C600EC1471 /* Supporting Views */,
+				26C0B16E2442D89C00EC1471 /* Model */,
 				26E0AEDA243E8BEE006E9A08 /* AppDelegate.swift */,
 				26E0AEDC243E8BEE006E9A08 /* SceneDelegate.swift */,
-				26E0AEDE243E8BEE006E9A08 /* ViewController.swift */,
 				26E0AEE0243E8BEE006E9A08 /* Main.storyboard */,
 				26E0AEE6243E8BF5006E9A08 /* Assets.xcassets */,
 				26E0AEE8243E8BF5006E9A08 /* LaunchScreen.storyboard */,
@@ -129,6 +182,15 @@
 				26E0AF01243E8BF6006E9A08 /* Info.plist */,
 			);
 			path = HelpingHarperUITests;
+			sourceTree = "<group>";
+		};
+		26FE146C2442FC4C0008BA1E /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				26FE146D2442FC800008BA1E /* ScenarioTableViewCell.swift */,
+				26FE146F24433EFC0008BA1E /* StoryTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,9 +297,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26FE146B2442E70B0008BA1E /* Main.storyboard in Resources */,
 				26E0AEEA243E8BF5006E9A08 /* LaunchScreen.storyboard in Resources */,
 				26E0AEE7243E8BF5006E9A08 /* Assets.xcassets in Resources */,
-				26E0AEE2243E8BEE006E9A08 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,9 +324,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26E0AEDF243E8BEE006E9A08 /* ViewController.swift in Sources */,
+				26C0B17C2442E3D500EC1471 /* StoryViewController.swift in Sources */,
+				26C0B1702442D8F900EC1471 /* Question.swift in Sources */,
+				26C0B17A2442E3BD00EC1471 /* ScenarioVC.swift in Sources */,
+				26C0B1722442D94100EC1471 /* Topic.swift in Sources */,
+				26AEA52F244346A300354567 /* CustomNavController.swift in Sources */,
+				26C0B1762442E2F000EC1471 /* RoundedView.swift in Sources */,
+				26FE147024433EFC0008BA1E /* StoryTableViewCell.swift in Sources */,
+				26FE14722443420E0008BA1E /* QuestionViewController.swift in Sources */,
+				26E0AEDF243E8BEE006E9A08 /* MainViewController.swift in Sources */,
+				26FE146E2442FC800008BA1E /* ScenarioTableViewCell.swift in Sources */,
 				26E0AEDB243E8BEE006E9A08 /* AppDelegate.swift in Sources */,
 				26E0AEDD243E8BEE006E9A08 /* SceneDelegate.swift in Sources */,
+				26C0B1772442E2F000EC1471 /* ToastAlert.swift in Sources */,
 				26E0AEE5243E8BEE006E9A08 /* HelpingHarper.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
