@@ -3,10 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		053EF5453ADF978B6FEC4A4D /* Pods_HelpingHarper_HelpingHarperUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 408BD9D202DA754BAE3F06D9 /* Pods_HelpingHarper_HelpingHarperUITests.framework */; };
+		26164F0C2446C37E00BE32FB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26164F0B2446C37E00BE32FB /* Constants.swift */; };
+		26164F0E2446C4E900BE32FB /* NetworkingClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26164F0D2446C4E900BE32FB /* NetworkingClient.swift */; };
+		26164F102447226200BE32FB /* Scenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26164F0F2447226200BE32FB /* Scenario.swift */; };
+		2638CECF244841BB00FD2CCD /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2638CECE244841BB00FD2CCD /* Story.swift */; };
+		2638CED12448550C00FD2CCD /* QuestionSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2638CED02448550C00FD2CCD /* QuestionSetup.swift */; };
+		2638CED32448559600FD2CCD /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2638CED22448559600FD2CCD /* Answer.swift */; };
 		26AEA52F244346A300354567 /* CustomNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AEA52E244346A300354567 /* CustomNavController.swift */; };
 		26C0B1702442D8F900EC1471 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C0B16F2442D8F900EC1471 /* Question.swift */; };
 		26C0B1722442D94100EC1471 /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C0B1712442D94100EC1471 /* Topic.swift */; };
@@ -26,6 +33,8 @@
 		26FE146E2442FC800008BA1E /* ScenarioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FE146D2442FC800008BA1E /* ScenarioTableViewCell.swift */; };
 		26FE147024433EFC0008BA1E /* StoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FE146F24433EFC0008BA1E /* StoryTableViewCell.swift */; };
 		26FE14722443420E0008BA1E /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FE14712443420E0008BA1E /* QuestionViewController.swift */; };
+		920FB160F0313DC6D703322B /* Pods_HelpingHarperTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B30BE04ACCDF452D8C4A60 /* Pods_HelpingHarperTests.framework */; };
+		AA26F9A9DF4FA8438AC77612 /* Pods_HelpingHarper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97CBAC7DBABF2237A0EC782F /* Pods_HelpingHarper.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +55,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		18D1D081CD31AF3EA924D34D /* Pods-HelpingHarper-HelpingHarperUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HelpingHarper-HelpingHarperUITests.debug.xcconfig"; path = "Target Support Files/Pods-HelpingHarper-HelpingHarperUITests/Pods-HelpingHarper-HelpingHarperUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		26164F0B2446C37E00BE32FB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		26164F0D2446C4E900BE32FB /* NetworkingClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingClient.swift; sourceTree = "<group>"; };
+		26164F0F2447226200BE32FB /* Scenario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scenario.swift; sourceTree = "<group>"; };
+		2638CECE244841BB00FD2CCD /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
+		2638CED02448550C00FD2CCD /* QuestionSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionSetup.swift; sourceTree = "<group>"; };
+		2638CED22448559600FD2CCD /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 		26AEA52E244346A300354567 /* CustomNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavController.swift; sourceTree = "<group>"; };
 		26C0B16F2442D8F900EC1471 /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		26C0B1712442D94100EC1471 /* Topic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
@@ -71,6 +87,14 @@
 		26FE146D2442FC800008BA1E /* ScenarioTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioTableViewCell.swift; sourceTree = "<group>"; };
 		26FE146F24433EFC0008BA1E /* StoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTableViewCell.swift; sourceTree = "<group>"; };
 		26FE14712443420E0008BA1E /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
+		2E14931CDD36383DADE73391 /* Pods-HelpingHarper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HelpingHarper.debug.xcconfig"; path = "Target Support Files/Pods-HelpingHarper/Pods-HelpingHarper.debug.xcconfig"; sourceTree = "<group>"; };
+		36812B9240C9B0B4EE01B844 /* Pods-HelpingHarperTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HelpingHarperTests.release.xcconfig"; path = "Target Support Files/Pods-HelpingHarperTests/Pods-HelpingHarperTests.release.xcconfig"; sourceTree = "<group>"; };
+		408BD9D202DA754BAE3F06D9 /* Pods_HelpingHarper_HelpingHarperUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HelpingHarper_HelpingHarperUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		58DFC20AA6FC900CD0BB7D42 /* Pods-HelpingHarperTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HelpingHarperTests.debug.xcconfig"; path = "Target Support Files/Pods-HelpingHarperTests/Pods-HelpingHarperTests.debug.xcconfig"; sourceTree = "<group>"; };
+		97CBAC7DBABF2237A0EC782F /* Pods_HelpingHarper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HelpingHarper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF81802E92E640BF8C1D878B /* Pods-HelpingHarper-HelpingHarperUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HelpingHarper-HelpingHarperUITests.release.xcconfig"; path = "Target Support Files/Pods-HelpingHarper-HelpingHarperUITests/Pods-HelpingHarper-HelpingHarperUITests.release.xcconfig"; sourceTree = "<group>"; };
+		F5B30BE04ACCDF452D8C4A60 /* Pods_HelpingHarperTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HelpingHarperTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA3D48CAFC0EFD81352A6C91 /* Pods-HelpingHarper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HelpingHarper.release.xcconfig"; path = "Target Support Files/Pods-HelpingHarper/Pods-HelpingHarper.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA26F9A9DF4FA8438AC77612 /* Pods_HelpingHarper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				920FB160F0313DC6D703322B /* Pods_HelpingHarperTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,17 +118,41 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				053EF5453ADF978B6FEC4A4D /* Pods_HelpingHarper_HelpingHarperUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0EA9C55AA36EB7F51A2E7491 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				97CBAC7DBABF2237A0EC782F /* Pods_HelpingHarper.framework */,
+				408BD9D202DA754BAE3F06D9 /* Pods_HelpingHarper_HelpingHarperUITests.framework */,
+				F5B30BE04ACCDF452D8C4A60 /* Pods_HelpingHarperTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		26164F0A2446C34F00BE32FB /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				26164F0B2446C37E00BE32FB /* Constants.swift */,
+				26164F0D2446C4E900BE32FB /* NetworkingClient.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		26C0B16E2442D89C00EC1471 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				26C0B16F2442D8F900EC1471 /* Question.swift */,
 				26C0B1712442D94100EC1471 /* Topic.swift */,
+				26164F0F2447226200BE32FB /* Scenario.swift */,
+				2638CECE244841BB00FD2CCD /* Story.swift */,
+				2638CED02448550C00FD2CCD /* QuestionSetup.swift */,
+				2638CED22448559600FD2CCD /* Answer.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -135,6 +185,8 @@
 				26E0AEF3243E8BF6006E9A08 /* HelpingHarperTests */,
 				26E0AEFE243E8BF6006E9A08 /* HelpingHarperUITests */,
 				26E0AED8243E8BEE006E9A08 /* Products */,
+				D59FC727D62DA89F972BE940 /* Pods */,
+				0EA9C55AA36EB7F51A2E7491 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -151,6 +203,7 @@
 		26E0AED9243E8BEE006E9A08 /* HelpingHarper */ = {
 			isa = PBXGroup;
 			children = (
+				26164F0A2446C34F00BE32FB /* Utils */,
 				26FE146C2442FC4C0008BA1E /* Cells */,
 				26C0B1782442E38C00EC1471 /* View Controller */,
 				26C0B1732442E2C600EC1471 /* Supporting Views */,
@@ -193,6 +246,19 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		D59FC727D62DA89F972BE940 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2E14931CDD36383DADE73391 /* Pods-HelpingHarper.debug.xcconfig */,
+				FA3D48CAFC0EFD81352A6C91 /* Pods-HelpingHarper.release.xcconfig */,
+				18D1D081CD31AF3EA924D34D /* Pods-HelpingHarper-HelpingHarperUITests.debug.xcconfig */,
+				EF81802E92E640BF8C1D878B /* Pods-HelpingHarper-HelpingHarperUITests.release.xcconfig */,
+				58DFC20AA6FC900CD0BB7D42 /* Pods-HelpingHarperTests.debug.xcconfig */,
+				36812B9240C9B0B4EE01B844 /* Pods-HelpingHarperTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -200,9 +266,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 26E0AF04243E8BF6006E9A08 /* Build configuration list for PBXNativeTarget "HelpingHarper" */;
 			buildPhases = (
+				3CD652854C7076B10FEB7689 /* [CP] Check Pods Manifest.lock */,
 				26E0AED3243E8BEE006E9A08 /* Sources */,
 				26E0AED4243E8BEE006E9A08 /* Frameworks */,
 				26E0AED5243E8BEE006E9A08 /* Resources */,
+				80E620B3E8BB25DAEF0B4418 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -217,6 +285,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 26E0AF07243E8BF6006E9A08 /* Build configuration list for PBXNativeTarget "HelpingHarperTests" */;
 			buildPhases = (
+				4E8277DCECBC35F978D4AB61 /* [CP] Check Pods Manifest.lock */,
 				26E0AEEC243E8BF6006E9A08 /* Sources */,
 				26E0AEED243E8BF6006E9A08 /* Frameworks */,
 				26E0AEEE243E8BF6006E9A08 /* Resources */,
@@ -235,9 +304,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 26E0AF0A243E8BF6006E9A08 /* Build configuration list for PBXNativeTarget "HelpingHarperUITests" */;
 			buildPhases = (
+				A94318E5E9D8EFF80D090660 /* [CP] Check Pods Manifest.lock */,
 				26E0AEF7243E8BF6006E9A08 /* Sources */,
 				26E0AEF8243E8BF6006E9A08 /* Frameworks */,
 				26E0AEF9243E8BF6006E9A08 /* Resources */,
+				7C9E6813AF909C9BC5F1C8DF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -319,18 +390,126 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3CD652854C7076B10FEB7689 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HelpingHarper-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4E8277DCECBC35F978D4AB61 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HelpingHarperTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7C9E6813AF909C9BC5F1C8DF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HelpingHarper-HelpingHarperUITests/Pods-HelpingHarper-HelpingHarperUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HelpingHarper-HelpingHarperUITests/Pods-HelpingHarper-HelpingHarperUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HelpingHarper-HelpingHarperUITests/Pods-HelpingHarper-HelpingHarperUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		80E620B3E8BB25DAEF0B4418 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HelpingHarper/Pods-HelpingHarper-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HelpingHarper/Pods-HelpingHarper-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HelpingHarper/Pods-HelpingHarper-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A94318E5E9D8EFF80D090660 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HelpingHarper-HelpingHarperUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		26E0AED3243E8BEE006E9A08 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2638CED12448550C00FD2CCD /* QuestionSetup.swift in Sources */,
 				26C0B17C2442E3D500EC1471 /* StoryViewController.swift in Sources */,
 				26C0B1702442D8F900EC1471 /* Question.swift in Sources */,
 				26C0B17A2442E3BD00EC1471 /* ScenarioVC.swift in Sources */,
 				26C0B1722442D94100EC1471 /* Topic.swift in Sources */,
 				26AEA52F244346A300354567 /* CustomNavController.swift in Sources */,
+				26164F102447226200BE32FB /* Scenario.swift in Sources */,
+				2638CED32448559600FD2CCD /* Answer.swift in Sources */,
+				26164F0C2446C37E00BE32FB /* Constants.swift in Sources */,
 				26C0B1762442E2F000EC1471 /* RoundedView.swift in Sources */,
 				26FE147024433EFC0008BA1E /* StoryTableViewCell.swift in Sources */,
+				26164F0E2446C4E900BE32FB /* NetworkingClient.swift in Sources */,
 				26FE14722443420E0008BA1E /* QuestionViewController.swift in Sources */,
 				26E0AEDF243E8BEE006E9A08 /* MainViewController.swift in Sources */,
 				26FE146E2442FC800008BA1E /* ScenarioTableViewCell.swift in Sources */,
@@ -338,6 +517,7 @@
 				26E0AEDD243E8BEE006E9A08 /* SceneDelegate.swift in Sources */,
 				26C0B1772442E2F000EC1471 /* ToastAlert.swift in Sources */,
 				26E0AEE5243E8BEE006E9A08 /* HelpingHarper.xcdatamodeld in Sources */,
+				2638CECF244841BB00FD2CCD /* Story.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,6 +688,7 @@
 		};
 		26E0AF05243E8BF6006E9A08 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2E14931CDD36383DADE73391 /* Pods-HelpingHarper.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -526,6 +707,7 @@
 		};
 		26E0AF06243E8BF6006E9A08 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA3D48CAFC0EFD81352A6C91 /* Pods-HelpingHarper.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -544,6 +726,7 @@
 		};
 		26E0AF08243E8BF6006E9A08 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 58DFC20AA6FC900CD0BB7D42 /* Pods-HelpingHarperTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -566,6 +749,7 @@
 		};
 		26E0AF09243E8BF6006E9A08 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 36812B9240C9B0B4EE01B844 /* Pods-HelpingHarperTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -588,6 +772,7 @@
 		};
 		26E0AF0B243E8BF6006E9A08 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 18D1D081CD31AF3EA924D34D /* Pods-HelpingHarper-HelpingHarperUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -608,6 +793,7 @@
 		};
 		26E0AF0C243E8BF6006E9A08 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EF81802E92E640BF8C1D878B /* Pods-HelpingHarper-HelpingHarperUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

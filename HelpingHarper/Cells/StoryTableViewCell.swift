@@ -9,10 +9,15 @@
 import UIKit
 
 class StoryTableViewCell: UITableViewCell {
-
+    @IBOutlet weak var storyImageView: UIImageView!
+    @IBOutlet weak var storyNameLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        storyImageView.layer.cornerRadius = storyImageView.frame.width/15
+
+               storyImageView.clipsToBounds = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

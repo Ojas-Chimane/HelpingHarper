@@ -10,9 +10,17 @@ import UIKit
 
 class ScenarioTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var scenarioImageView: UIImageView!
+    @IBOutlet weak var scenarioNameLabel: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        scenarioImageView.layer.cornerRadius = scenarioImageView.frame.width/15
+
+        scenarioImageView.clipsToBounds = true
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
