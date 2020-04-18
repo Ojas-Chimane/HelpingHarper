@@ -9,22 +9,23 @@
 import Foundation
 
 class Question: Codable {
-    
+    let question_id:Int
 	let question: String
 	//let answers: [String]
 	//var correctAnswers: Set<UInt8>! = []
 	//let correct: UInt8?
 	let img_URL: String?
-    let answerList : [Answer]
-    let questionSetupList : [QuestionSetup]
+//    let answerList : [Answer]
+//    let questionSetupList : [QuestionSetup]
     
     
 	
-	init(question: String, imageURL: String? = nil,answerList : [Answer],questionSetupList : [QuestionSetup]) {
+    init(question_id:Int,question: String, imageURL: String? = nil) {
+        self.question_id = question_id
 		self.question = question.trimmingCharacters(in: .whitespacesAndNewlines)
 		self.img_URL = imageURL?.trimmingCharacters(in: .whitespacesAndNewlines)
-        self.answerList = answerList
-        self.questionSetupList = questionSetupList
+//        self.answerList = answerList
+//        self.questionSetupList = questionSetupList
 	}
 }
 

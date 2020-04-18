@@ -9,8 +9,8 @@
 import Foundation
 
 class QuestionSetup: Codable{
-    var setup_desc:String
-    var setup_img_URL:String
+    var setup_desc: String
+    var setup_img_URL: String
     
     init(setup_desc:String,setup_img_URL:String) {
         self.setup_desc = setup_desc

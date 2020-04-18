@@ -11,7 +11,7 @@ import Foundation
 struct Constants{
     
     //Production Base URL
-    //static let baseURL = "http://helpingharper.games"
+  //  static let baseURL = "http://helpingharper.games"
     
     // Local Base URL
     static let baseURL = "http://localhost:8080"

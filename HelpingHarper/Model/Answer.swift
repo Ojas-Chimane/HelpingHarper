@@ -9,13 +9,13 @@
 import Foundation
 
 class Answer: Codable{
-    var is_correct_ans:Int
+    var ans_is_correct:Int
     var answer:String
     var ans_feedback:String
     var ans_feed_img_URL:String
     
-    init(is_correct_ans:Int,answer:String,ans_feedback:String,ans_feed_img_URL:String) {
-        self.is_correct_ans = is_correct_ans
+    init(ans_is_correct:Int,answer:String,ans_feedback:String,ans_feed_img_URL:String) {
+        self.ans_is_correct = ans_is_correct
         self.answer = answer
         self.ans_feedback = ans_feedback
         self.ans_feed_img_URL = ans_feed_img_URL

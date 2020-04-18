@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import AlamofireImage
 
+
 class ScenarioVC: UIViewController {
     
     private let networkingClient = NetworkingClient()
@@ -79,9 +80,9 @@ extension ScenarioVC: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SCENARIO_CELL_IDENTIFIER", for: indexPath) as! ScenarioTableViewCell
         
-        
+        cell.scenarioNameLabel.text = self.scenarioList[indexPath.row].scenario_name
         // TODO - Add image after api call
-        // cell.scenarioImageView.image
+        cell.scenarioImageView.image = nil
         
         AF.request(scenarioList[indexPath.row].scenario_img_URL).responseImage { response in
             debugPrint(response)
@@ -91,15 +92,20 @@ extension ScenarioVC: UITableViewDelegate, UITableViewDataSource{
             debugPrint(response.result)
             
             if case .success(let image) = response.result {
-                print("image downloaded: \(image)")
-                cell.scenarioImageView.image = image
-                cell.scenarioNameLabel.text = self.scenarioList[indexPath.row].scenario_name
+                if let cellToUpdate = tableView.cellForRow(at: indexPath) {
+                    print("image downloaded: \(image)")
+                    cell.scenarioImageView.image = image
+                    cellToUpdate.setNeedsLayout()
+                    
+                }
+ 
+                
             }
         }
         
         
         return cell
-    }
+    } 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Selected ScenarioId: \(scenarioList[indexPath.row].scenario_id)")
