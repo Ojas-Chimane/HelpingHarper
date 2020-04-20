@@ -15,6 +15,10 @@
 		2638CED12448550C00FD2CCD /* QuestionSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2638CED02448550C00FD2CCD /* QuestionSetup.swift */; };
 		2638CED32448559600FD2CCD /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2638CED22448559600FD2CCD /* Answer.swift */; };
 		266478D1244AEA4300295619 /* QuestionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266478D0244AEA4300295619 /* QuestionData.swift */; };
+		266478D4244D466B00295619 /* Colors+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266478D3244D466B00295619 /* Colors+Extension.swift */; };
+		266478D6244D477200295619 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266478D5244D477200295619 /* UserDefaultsManager.swift */; };
+		266478D8244D479E00295619 /* PreferencesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266478D7244D479E00295619 /* PreferencesManager.swift */; };
+		266478DA244D78EF00295619 /* FeedbackGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266478D9244D78EF00295619 /* FeedbackGenerator.swift */; };
 		26AEA52F244346A300354567 /* CustomNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AEA52E244346A300354567 /* CustomNavController.swift */; };
 		26C0B1702442D8F900EC1471 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C0B16F2442D8F900EC1471 /* Question.swift */; };
 		26C0B1722442D94100EC1471 /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C0B1712442D94100EC1471 /* Topic.swift */; };
@@ -64,6 +68,10 @@
 		2638CED02448550C00FD2CCD /* QuestionSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionSetup.swift; sourceTree = "<group>"; };
 		2638CED22448559600FD2CCD /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 		266478D0244AEA4300295619 /* QuestionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionData.swift; sourceTree = "<group>"; };
+		266478D3244D466B00295619 /* Colors+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Colors+Extension.swift"; sourceTree = "<group>"; };
+		266478D5244D477200295619 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		266478D7244D479E00295619 /* PreferencesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesManager.swift; sourceTree = "<group>"; };
+		266478D9244D78EF00295619 /* FeedbackGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackGenerator.swift; sourceTree = "<group>"; };
 		26AEA52E244346A300354567 /* CustomNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavController.swift; sourceTree = "<group>"; };
 		26C0B16F2442D8F900EC1471 /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		26C0B1712442D94100EC1471 /* Topic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
@@ -142,8 +150,26 @@
 			children = (
 				26164F0B2446C37E00BE32FB /* Constants.swift */,
 				26164F0D2446C4E900BE32FB /* NetworkingClient.swift */,
+				266478D5244D477200295619 /* UserDefaultsManager.swift */,
+				266478D7244D479E00295619 /* PreferencesManager.swift */,
+				266478D9244D78EF00295619 /* FeedbackGenerator.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		266478D2244D464C00295619 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				266478D3244D466B00295619 /* Colors+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		266478DB244D807400295619 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		26C0B16E2442D89C00EC1471 /* Model */ = {
@@ -206,6 +232,8 @@
 		26E0AED9243E8BEE006E9A08 /* HelpingHarper */ = {
 			isa = PBXGroup;
 			children = (
+				266478DB244D807400295619 /* Resources */,
+				266478D2244D464C00295619 /* Extensions */,
 				26164F0A2446C34F00BE32FB /* Utils */,
 				26FE146C2442FC4C0008BA1E /* Cells */,
 				26C0B1782442E38C00EC1471 /* View Controller */,
@@ -501,6 +529,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				266478D8244D479E00295619 /* PreferencesManager.swift in Sources */,
 				2638CED12448550C00FD2CCD /* QuestionSetup.swift in Sources */,
 				26C0B17C2442E3D500EC1471 /* StoryViewController.swift in Sources */,
 				26C0B1702442D8F900EC1471 /* Question.swift in Sources */,
@@ -508,6 +537,7 @@
 				26C0B17A2442E3BD00EC1471 /* ScenarioVC.swift in Sources */,
 				26C0B1722442D94100EC1471 /* Topic.swift in Sources */,
 				26AEA52F244346A300354567 /* CustomNavController.swift in Sources */,
+				266478D6244D477200295619 /* UserDefaultsManager.swift in Sources */,
 				26164F102447226200BE32FB /* Scenario.swift in Sources */,
 				2638CED32448559600FD2CCD /* Answer.swift in Sources */,
 				26164F0C2446C37E00BE32FB /* Constants.swift in Sources */,
@@ -516,8 +546,10 @@
 				26164F0E2446C4E900BE32FB /* NetworkingClient.swift in Sources */,
 				26FE14722443420E0008BA1E /* QuestionViewController.swift in Sources */,
 				26E0AEDF243E8BEE006E9A08 /* MainViewController.swift in Sources */,
+				266478DA244D78EF00295619 /* FeedbackGenerator.swift in Sources */,
 				26FE146E2442FC800008BA1E /* ScenarioTableViewCell.swift in Sources */,
 				26E0AEDB243E8BEE006E9A08 /* AppDelegate.swift in Sources */,
+				266478D4244D466B00295619 /* Colors+Extension.swift in Sources */,
 				26E0AEDD243E8BEE006E9A08 /* SceneDelegate.swift in Sources */,
 				26C0B1772442E2F000EC1471 /* ToastAlert.swift in Sources */,
 				26E0AEE5243E8BEE006E9A08 /* HelpingHarper.xcdatamodeld in Sources */,

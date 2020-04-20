@@ -13,8 +13,12 @@ class Answer: Codable{
     var answer:String
     var ans_feedback:String
     var ans_feed_img_URL:String
+    var ans_id:Int
+    var question_id:Int
     
-    init(ans_is_correct:Int,answer:String,ans_feedback:String,ans_feed_img_URL:String) {
+    init(ans_id:Int,question_id:Int,ans_is_correct:Int,answer:String,ans_feedback:String,ans_feed_img_URL:String) {
+        self.ans_id = ans_id
+        self.question_id = question_id
         self.ans_is_correct = ans_is_correct
         self.answer = answer
         self.ans_feedback = ans_feedback

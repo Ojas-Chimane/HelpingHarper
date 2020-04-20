@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4yG-gb-zTg">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -151,28 +151,28 @@
                         <viewLayoutGuide key="safeArea" id="wST-nS-EBb"/>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="K4i-Ip-Fgu"/>
-                                <exclude reference="RWI-Xp-B6O"/>
                                 <exclude reference="jIz-Ta-N4S"/>
                                 <exclude reference="ymu-nT-9wI"/>
+                                <exclude reference="K4i-Ip-Fgu"/>
+                                <exclude reference="RWI-Xp-B6O"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact-widthClass=compact">
                             <mask key="constraints">
+                                <include reference="ymu-nT-9wI"/>
                                 <include reference="K4i-Ip-Fgu"/>
                                 <exclude reference="KbY-GB-wew"/>
                                 <include reference="RWI-Xp-B6O"/>
                                 <exclude reference="auP-AD-kgH"/>
-                                <include reference="ymu-nT-9wI"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact-widthClass=regular">
                             <mask key="constraints">
+                                <include reference="ymu-nT-9wI"/>
                                 <include reference="K4i-Ip-Fgu"/>
                                 <exclude reference="KbY-GB-wew"/>
                                 <include reference="RWI-Xp-B6O"/>
                                 <exclude reference="auP-AD-kgH"/>
-                                <include reference="ymu-nT-9wI"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=regular">
@@ -460,7 +460,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="134.5" height="50"/>
                                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
-                                                <state key="normal" title="Pause/Continue"/>
+                                                <state key="normal" title="Pause"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="15"/>
@@ -524,10 +524,10 @@
                                         </variation>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ZsC-lN-nVC">
-                                        <rect key="frame" x="0.0" y="64" width="385" height="286.5"/>
+                                        <rect key="frame" x="0.0" y="64" width="385" height="490"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CRb-4H-nha">
-                                                <rect key="frame" x="0.0" y="0.0" width="385" height="147.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="385" height="252"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -544,10 +544,10 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ER7-hU-91Z">
-                                                <rect key="frame" x="0.0" y="152.5" width="385" height="134"/>
+                                                <rect key="frame" x="0.0" y="257" width="385" height="233"/>
                                             </activityIndicatorView>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cf7-Q9-dWa">
-                                                <rect key="frame" x="0.0" y="286.5" width="385" height="0.0"/>
+                                                <rect key="frame" x="0.0" y="490" width="385" height="0.0"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </button>
                                         </subviews>
@@ -556,10 +556,10 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="90d-zS-hnk" userLabel="answers">
-                                        <rect key="frame" x="0.0" y="364.5" width="385" height="370"/>
+                                        <rect key="frame" x="0.0" y="568" width="385" height="200"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MM3-CG-5MV" customClass="RoundedButton" customModule="HelpingHarper" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="385" height="370"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="385" height="200"/>
                                                 <color key="backgroundColor" red="0.12941176469999999" green="0.58823529409999997" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -568,7 +568,7 @@
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="15"/>
+                                                        <real key="value" value="30"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
                                                         <size key="value" width="0.5" height="3.5"/>
@@ -582,15 +582,15 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="200" id="rP0-g2-OcP"/>
+                                        </constraints>
                                         <variation key="heightClass=compact-widthClass=compact" spacing="8"/>
                                         <variation key="heightClass=compact-widthClass=regular" spacing="13"/>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TeC-fJ-TZq">
-                                        <rect key="frame" x="0.0" y="748.5" width="385" height="19.5"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
-                                        <state key="normal" title="?">
-                                            <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TeC-fJ-TZq">
+                                        <rect key="frame" x="0.0" y="768" width="385" height="19"/>
+                                        <state key="normal" title="?"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
                                                 <size key="value" width="0.5" height="2.5"/>
@@ -609,7 +609,6 @@
                                     <constraint firstItem="90d-zS-hnk" firstAttribute="height" secondItem="D08-YG-arT" secondAttribute="height" multiplier="0.55" id="JA0-l1-fKt"/>
                                     <constraint firstItem="TeC-fJ-TZq" firstAttribute="height" secondItem="D08-YG-arT" secondAttribute="height" multiplier="0.025" id="YV6-8n-Pu2"/>
                                     <constraint firstItem="vZs-e5-JKr" firstAttribute="height" secondItem="D08-YG-arT" secondAttribute="height" multiplier="0.065" id="o8u-wg-ocq"/>
-                                    <constraint firstItem="90d-zS-hnk" firstAttribute="height" secondItem="D08-YG-arT" secondAttribute="height" multiplier="0.482" id="teg-sx-XkM"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -622,14 +621,12 @@
                                     <mask key="constraints">
                                         <include reference="9Fg-H9-j6h"/>
                                         <include reference="JA0-l1-fKt"/>
-                                        <exclude reference="teg-sx-XkM"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=compact-widthClass=regular">
                                     <mask key="constraints">
                                         <include reference="9Fg-H9-j6h"/>
                                         <include reference="JA0-l1-fKt"/>
-                                        <exclude reference="teg-sx-XkM"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
@@ -644,7 +641,7 @@
                                 </variation>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.90816897149999998" green="0.82639545199999997" blue="0.70193976160000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="D08-YG-arT" firstAttribute="centerY" secondItem="dZd-HC-T67" secondAttribute="centerY" id="JAw-7p-x6J"/>
@@ -676,6 +673,12 @@
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" id="tUu-Eb-Yb4"/>
+                    <connections>
+                        <outlet property="answerStub" destination="MM3-CG-5MV" id="4dR-jn-pJx"/>
+                        <outlet property="answersStackView" destination="90d-zS-hnk" id="I8d-L9-zas"/>
+                        <outlet property="questionLabel" destination="CRb-4H-nha" id="RZr-tk-Vl1"/>
+                        <outlet property="remainingQuestionsLabel" destination="LKe-AP-62W" id="CDM-BC-1ou"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0jH-Dx-oXT" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="P0D-qH-lfP"/>
