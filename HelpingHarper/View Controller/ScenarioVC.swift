@@ -82,26 +82,26 @@ extension ScenarioVC: UITableViewDelegate, UITableViewDataSource{
         
         cell.scenarioNameLabel.text = self.scenarioList[indexPath.row].scenario_name
         // TODO - Add image after api call
-        cell.scenarioImageView.image = nil
+       // cell.scenarioImageView.image = nil
         
-        AF.request(scenarioList[indexPath.row].scenario_img_URL).responseImage { response in
-            debugPrint(response)
-            
-//            print(response.request)
-//            print(response.response)
-            debugPrint(response.result)
-            
-            if case .success(let image) = response.result {
-                if let cellToUpdate = tableView.cellForRow(at: indexPath) {
-                    print("image downloaded: \(image)")
-                    cell.scenarioImageView.image = image
-                    cellToUpdate.setNeedsLayout()
-                    
-                }
+//        AF.request(scenarioList[indexPath.row].scenario_img_URL).responseImage { response in
+//            debugPrint(response)
+//
+////            print(response.request)
+////            print(response.response)
+//            debugPrint(response.result)
+//
+//            if case .success(let image) = response.result {
+//                if let cellToUpdate = tableView.cellForRow(at: indexPath) {
+//                    print("image downloaded: \(image)")
+//                    cell.scenarioImageView.image = image
+//                    cellToUpdate.setNeedsLayout()
+//
+//                }
  
                 
-            }
-        }
+       //     }
+    //    }
         
         
         return cell

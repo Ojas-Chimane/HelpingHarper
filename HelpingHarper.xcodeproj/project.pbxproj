@@ -14,6 +14,8 @@
 		2638CECF244841BB00FD2CCD /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2638CECE244841BB00FD2CCD /* Story.swift */; };
 		2638CED12448550C00FD2CCD /* QuestionSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2638CED02448550C00FD2CCD /* QuestionSetup.swift */; };
 		2638CED32448559600FD2CCD /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2638CED22448559600FD2CCD /* Answer.swift */; };
+		265D9D982450535F00F9766F /* SetupScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D9D972450535F00F9766F /* SetupScreenViewController.swift */; };
+		265D9D9A2450558B00F9766F /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D9D992450558B00F9766F /* OnboardingView.swift */; };
 		266478D1244AEA4300295619 /* QuestionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266478D0244AEA4300295619 /* QuestionData.swift */; };
 		266478D4244D466B00295619 /* Colors+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266478D3244D466B00295619 /* Colors+Extension.swift */; };
 		266478D6244D477200295619 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266478D5244D477200295619 /* UserDefaultsManager.swift */; };
@@ -67,6 +69,8 @@
 		2638CECE244841BB00FD2CCD /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
 		2638CED02448550C00FD2CCD /* QuestionSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionSetup.swift; sourceTree = "<group>"; };
 		2638CED22448559600FD2CCD /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
+		265D9D972450535F00F9766F /* SetupScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupScreenViewController.swift; sourceTree = "<group>"; };
+		265D9D992450558B00F9766F /* OnboardingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		266478D0244AEA4300295619 /* QuestionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionData.swift; sourceTree = "<group>"; };
 		266478D3244D466B00295619 /* Colors+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Colors+Extension.swift"; sourceTree = "<group>"; };
 		266478D5244D477200295619 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
@@ -190,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				26C0B1742442E2F000EC1471 /* RoundedView.swift */,
+				265D9D992450558B00F9766F /* OnboardingView.swift */,
 				26C0B1752442E2F000EC1471 /* ToastAlert.swift */,
 				26AEA52E244346A300354567 /* CustomNavController.swift */,
 			);
@@ -201,6 +206,7 @@
 			children = (
 				26E0AEDE243E8BEE006E9A08 /* MainViewController.swift */,
 				26C0B1792442E3BD00EC1471 /* ScenarioVC.swift */,
+				265D9D972450535F00F9766F /* SetupScreenViewController.swift */,
 				26C0B17B2442E3D500EC1471 /* StoryViewController.swift */,
 				26FE14712443420E0008BA1E /* QuestionViewController.swift */,
 			);
@@ -537,9 +543,11 @@
 				26C0B17A2442E3BD00EC1471 /* ScenarioVC.swift in Sources */,
 				26C0B1722442D94100EC1471 /* Topic.swift in Sources */,
 				26AEA52F244346A300354567 /* CustomNavController.swift in Sources */,
+				265D9D982450535F00F9766F /* SetupScreenViewController.swift in Sources */,
 				266478D6244D477200295619 /* UserDefaultsManager.swift in Sources */,
 				26164F102447226200BE32FB /* Scenario.swift in Sources */,
 				2638CED32448559600FD2CCD /* Answer.swift in Sources */,
+				265D9D9A2450558B00F9766F /* OnboardingView.swift in Sources */,
 				26164F0C2446C37E00BE32FB /* Constants.swift in Sources */,
 				26C0B1762442E2F000EC1471 /* RoundedView.swift in Sources */,
 				26FE147024433EFC0008BA1E /* StoryTableViewCell.swift in Sources */,

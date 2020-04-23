@@ -19,10 +19,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ijo-kB-fzW">
-                                <rect key="frame" x="62" y="320" width="290" height="310"/>
+                                <rect key="frame" x="62" y="419" width="290" height="112"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SO2-ja-DUm" customClass="RoundedButton" customModule="HelpingHarper" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="290" height="70"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="290" height="51"/>
                                         <color key="backgroundColor" red="0.1286351979" green="0.37140956520000001" blue="0.44895005230000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="24"/>
                                         <size key="titleShadowOffset" width="2.2250738585072014e-308" height="0.0"/>
@@ -51,7 +51,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bbM-JX-wka" customClass="RoundedButton" customModule="HelpingHarper" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="80" width="290" height="70"/>
+                                        <rect key="frame" x="0.0" y="61" width="290" height="51"/>
                                         <color key="backgroundColor" red="0.13742247220000001" green="0.41653925180000001" blue="0.49672693010000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="25"/>
                                         <size key="titleShadowOffset" width="2.2250738585072014e-308" height="0.0"/>
@@ -79,8 +79,8 @@
                                             <segue destination="BAM-c8-8qU" kind="show" id="WIA-MM-KFr"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="op4-YF-K6f" customClass="RoundedButton" customModule="HelpingHarper" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="160" width="290" height="70"/>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="op4-YF-K6f" customClass="RoundedButton" customModule="HelpingHarper" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="112" width="290" height="0.0"/>
                                         <color key="backgroundColor" red="0.14610880609999999" green="0.46071255210000001" blue="0.54761135579999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="25"/>
                                         <state key="normal" title="SETTINGS">
@@ -104,8 +104,8 @@
                                             <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="35"/>
                                         </variation>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🏆 ?pts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qEJ-rK-ag3">
-                                        <rect key="frame" x="0.0" y="240" width="290" height="70"/>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🏆 ?pts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qEJ-rK-ag3">
+                                        <rect key="frame" x="0.0" y="112" width="290" height="0.0"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -125,7 +125,7 @@
                                 </subviews>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Helping Harper" translatesAutoresizingMaskIntoConstraints="NO" id="PpA-bm-xcN">
-                                <rect key="frame" x="16" y="104" width="382" height="200"/>
+                                <rect key="frame" x="16" y="104" width="382" height="299"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -136,7 +136,6 @@
                             <constraint firstItem="wST-nS-EBb" firstAttribute="trailing" secondItem="PpA-bm-xcN" secondAttribute="trailing" constant="16" id="JEC-Bw-2Mu"/>
                             <constraint firstItem="ijo-kB-fzW" firstAttribute="width" secondItem="wST-nS-EBb" secondAttribute="width" multiplier="0.6" id="K4i-Ip-Fgu"/>
                             <constraint firstItem="Smw-6s-ZYv" firstAttribute="top" secondItem="msL-6j-Qpa" secondAttribute="top" multiplier="1.2" id="KN7-SL-S7R"/>
-                            <constraint firstItem="ijo-kB-fzW" firstAttribute="height" secondItem="wST-nS-EBb" secondAttribute="height" multiplier="0.4" id="KbY-GB-wew"/>
                             <constraint firstItem="ijo-kB-fzW" firstAttribute="height" secondItem="wST-nS-EBb" secondAttribute="height" multiplier="0.85" id="RWI-Xp-B6O"/>
                             <constraint firstAttribute="trailing" secondItem="Smw-6s-ZYv" secondAttribute="trailing" id="SPj-Oj-hXs"/>
                             <constraint firstItem="ijo-kB-fzW" firstAttribute="width" secondItem="wST-nS-EBb" secondAttribute="width" multiplier="0.7" id="auP-AD-kgH"/>
@@ -161,7 +160,6 @@
                             <mask key="constraints">
                                 <include reference="ymu-nT-9wI"/>
                                 <include reference="K4i-Ip-Fgu"/>
-                                <exclude reference="KbY-GB-wew"/>
                                 <include reference="RWI-Xp-B6O"/>
                                 <exclude reference="auP-AD-kgH"/>
                             </mask>
@@ -170,7 +168,6 @@
                             <mask key="constraints">
                                 <include reference="ymu-nT-9wI"/>
                                 <include reference="K4i-Ip-Fgu"/>
-                                <exclude reference="KbY-GB-wew"/>
                                 <include reference="RWI-Xp-B6O"/>
                                 <exclude reference="auP-AD-kgH"/>
                             </mask>
@@ -254,7 +251,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="249"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c9E-Hs-KSe">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Beach_Sunset" translatesAutoresizingMaskIntoConstraints="NO" id="c9E-Hs-KSe">
                                                     <rect key="frame" x="16" y="8" width="382" height="200"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="200" id="XNM-fd-Jnv"/>
@@ -526,6 +523,10 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ZsC-lN-nVC">
                                         <rect key="frame" x="0.0" y="64" width="385" height="490"/>
                                         <subviews>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cf7-Q9-dWa">
+                                                <rect key="frame" x="0.0" y="0.0" width="385" height="0.0"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CRb-4H-nha">
                                                 <rect key="frame" x="0.0" y="0.0" width="385" height="252"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
@@ -546,10 +547,6 @@
                                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ER7-hU-91Z">
                                                 <rect key="frame" x="0.0" y="257" width="385" height="233"/>
                                             </activityIndicatorView>
-                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cf7-Q9-dWa">
-                                                <rect key="frame" x="0.0" y="490" width="385" height="0.0"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </button>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="CRb-4H-nha" firstAttribute="height" relation="greaterThanOrEqual" secondItem="ZsC-lN-nVC" secondAttribute="height" multiplier="0.3" id="Mov-G7-jSd"/>
@@ -676,6 +673,7 @@
                     <connections>
                         <outlet property="answerStub" destination="MM3-CG-5MV" id="4dR-jn-pJx"/>
                         <outlet property="answersStackView" destination="90d-zS-hnk" id="I8d-L9-zas"/>
+                        <outlet property="questionImageButton" destination="Cf7-Q9-dWa" id="fDl-44-2I3"/>
                         <outlet property="questionLabel" destination="CRb-4H-nha" id="RZr-tk-Vl1"/>
                         <outlet property="remainingQuestionsLabel" destination="LKe-AP-62W" id="CDM-BC-1ou"/>
                     </connections>
@@ -684,6 +682,53 @@
                 <tapGestureRecognizer id="P0D-qH-lfP"/>
             </objects>
             <point key="canvasLocation" x="2620" y="496"/>
+        </scene>
+        <!--Setup Screen View Controller-->
+        <scene sceneID="YdZ-Vq-ynG">
+            <objects>
+                <viewController storyboardIdentifier="SETUP_SCREEN_IDENTIFIER" id="PpJ-FY-yqE" customClass="SetupScreenViewController" customModule="HelpingHarper" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4rB-Pt-czZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pGL-u1-ZCT" customClass="OnboardingView" customModule="HelpingHarper" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xq6-x1-Ugu">
+                                <rect key="frame" x="16" y="762" width="382" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="yl0-vq-oS8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                <state key="normal" title="Continue...">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="onSetupScreenDismissBtnTapped:" destination="PpJ-FY-yqE" eventType="touchUpInside" id="0Ss-5R-OGy"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="pGL-u1-ZCT" firstAttribute="leading" secondItem="o6b-Sz-Smb" secondAttribute="leading" id="4QB-z2-7Ko"/>
+                            <constraint firstItem="o6b-Sz-Smb" firstAttribute="trailing" secondItem="xq6-x1-Ugu" secondAttribute="trailing" constant="16" id="5NG-Vs-b7k"/>
+                            <constraint firstItem="xq6-x1-Ugu" firstAttribute="leading" secondItem="o6b-Sz-Smb" secondAttribute="leading" constant="16" id="CSr-7m-SWd"/>
+                            <constraint firstItem="o6b-Sz-Smb" firstAttribute="bottom" secondItem="xq6-x1-Ugu" secondAttribute="bottom" constant="50" id="USz-il-3Tk"/>
+                            <constraint firstItem="pGL-u1-ZCT" firstAttribute="top" secondItem="4rB-Pt-czZ" secondAttribute="top" id="fmc-xj-x1P"/>
+                            <constraint firstItem="pGL-u1-ZCT" firstAttribute="trailing" secondItem="o6b-Sz-Smb" secondAttribute="trailing" id="nHC-6d-s0T"/>
+                            <constraint firstAttribute="bottom" secondItem="pGL-u1-ZCT" secondAttribute="bottom" id="yBh-VY-nvO"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="o6b-Sz-Smb"/>
+                    </view>
+                    <connections>
+                        <outlet property="dismissSetupScreenButton" destination="xq6-x1-Ugu" id="61T-4n-IFo"/>
+                        <outlet property="setupScreenView" destination="pGL-u1-ZCT" id="580-kE-fTM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SKQ-yk-1FV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3569.5652173913045" y="495.53571428571428"/>
         </scene>
     </scenes>
     <resources>

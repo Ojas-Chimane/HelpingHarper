@@ -12,6 +12,7 @@ import UIKit
 import UIKit
 import Alamofire
 import AlamofireImage
+import paper_onboarding
 import PromiseKit
 
 class QuestionViewController: UIViewController {
@@ -22,16 +23,18 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var answerStub: RoundedButton!
     
     var answerButtons: [RoundedButton] = []
+    var setupScreenList = [OnboardingItemInfo?]()
     
     @IBOutlet weak var pauseButton: UIButton!
     @IBOutlet weak var remainingQuestionsLabel: UILabel!
     @IBOutlet weak var quizTimerLabel: UILabel!
     
- 
+    
     @IBOutlet weak var questionLabel: UILabel!
+   
     @IBOutlet weak var questionImageButton: UIButton!
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
-
+    
     @IBOutlet weak var answersStackView: UIStackView!
     
     @IBOutlet weak var pauseView: UIView!
@@ -74,12 +77,12 @@ class QuestionViewController: UIViewController {
         super.viewDidLoad()
         
         setupQuestions()
-        //
-        //        self.questionImageButton.setImage(nil, for: .normal)
-        //        self.questionImageButton.imageView?.contentMode = .scaleAspectFill
-        //        self.questionImageButton.imageView?.clipsToBounds = true
-        //        self.questionImageButton.clipsToBounds = true
-        //        self.questionImageButton.layer.cornerRadius = 10
+        
+                self.questionImageButton.setImage(nil, for: .normal)
+                self.questionImageButton.imageView?.contentMode = .scaleAspectFit
+                self.questionImageButton.imageView?.clipsToBounds = true
+                self.questionImageButton.clipsToBounds = true
+                self.questionImageButton.layer.cornerRadius = 10
         
         //        if self.isSetFromJSON {
         //            self.goBack.isHidden = true
@@ -88,7 +91,7 @@ class QuestionViewController: UIViewController {
         //        self.setUpQuiz()
         //        self.preloadImages()
         // MARK: TODO
-          
+        
         // self.pickQuestion()
         
         //        let title = AudioSounds.bgMusic?.isPlaying == true ? Localized.Questions_PauseMenu_Music_Pause : Localized.Questions_PauseMenu_Music_Play
@@ -136,8 +139,16 @@ class QuestionViewController: UIViewController {
         //        self.goBack.setNeedsDisplay()
         //        self.muteMusic.setNeedsDisplay()
     }
-
     
+    private func invokeSetupScreen(){
+        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SETUP_SCREEN_IDENTIFIER") as? SetupScreenViewController
+        {
+            vc.modalPresentationStyle = .fullScreen
+            
+            vc.onBoardList = self.setupScreenList
+            present(vc, animated: true, completion: nil)
+        }
+    }
     
     
     
@@ -172,9 +183,9 @@ class QuestionViewController: UIViewController {
     //        }
     //    }
     // MARK: TODO
-        @objc func verifyButton(_ sender: RoundedButton) {
-            self.verify(answer: UInt8(sender.tag))
-        }
+    @objc func verifyButton(_ sender: RoundedButton) {
+        self.verify(answer: UInt8(sender.tag))
+    }
     
     //    @IBAction func pauseMenu() {
     //        self.pauseMenuAction()
@@ -198,33 +209,33 @@ class QuestionViewController: UIViewController {
     
     // MARK: createAnswerButtons
     // MARK: TODO
-        private func createAnswerButtons() {
-    
-            // Should fix this stuff in the storyboard...
-            self.answerStub.isHidden = true
-           // MARK: TODO
+    private func createAnswerButtons() {
+        
+        // Should fix this stuff in the storyboard...
+        self.answerStub.isHidden = true
+        // MARK: TODO
+        
+        let numberOfAnswers = set.first?.answerList.count ?? 4
+        
+        for i in 0..<numberOfAnswers {
             
-            let numberOfAnswers = set.first?.answerList.count ?? 4
-    
-            for i in 0..<numberOfAnswers {
-    
-                let button = RoundedButton()
-                button.cornerRadius = 15
-                button.setup(shadows:
-                    ShadowEffect(
-                        shadowColor: .black,
-                        shadowOffset: CGSize(width: 0.5, height: 3.5),
-                        shadowOpacity: 0.15,
-                        shadowRadius: 4)
-                )
-                button.tag = set.first?.answerList[i].ans_id ?? i
-                button.addTarget(self, action: #selector(self.verifyButton), for: .touchDown)
-                button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
-    
-                self.answerButtons.append(button)
-                self.answersStackView.addArrangedSubview(button)
-            }
+            let button = RoundedButton()
+            button.cornerRadius = 15
+            button.setup(shadows:
+                ShadowEffect(
+                    shadowColor: .black,
+                    shadowOffset: CGSize(width: 0.5, height: 3.5),
+                    shadowOpacity: 0.15,
+                    shadowRadius: 4)
+            )
+            button.tag = set.first?.answerList[i].ans_id ?? i
+            button.addTarget(self, action: #selector(self.verifyButton), for: .touchDown)
+            button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
+            
+            self.answerButtons.append(button)
+            self.answersStackView.addArrangedSubview(button)
         }
+    }
     
     //    private func preloadImages() {
     //        for fullQuestion in self.set.dropFirst() { // Drops the first because it will be cached by the 'pickQuestion()' function
@@ -260,55 +271,55 @@ class QuestionViewController: UIViewController {
     //        loadCurrentTheme()
     //    }
     //
-        @objc func loadCurrentTheme() {
-    
-            if #available(iOS 13, *) {
-    
-                self.questionLabel.textColor = .label
-                self.remainingQuestionsLabel.textColor = .secondaryLabel
-             //   self.quizTimerLabel.textColor = .secondaryLabel
-              //  self.blurView.effect = UserDefaultsManager.darkThemeSwitchIsOn ? UIBlurEffect(style: .dark) : UIBlurEffect(style: .light)
-    
-                self.answerButtons.forEach {
-                    $0.backgroundColor = .themeStyle(dark: .orange, light: .defaultTintColor)
-                  //  $0.dontInvertColors()
-                }
-    
-              //  self.pauseButton.backgroundColor = .secondarySystemBackground
-              //  self.pauseButton.setTitleColor(dark: .white, light: .defaultTintColor, for: .normal)
-             //   self.helpButton.setTitleColor(dark: .orange, light: .defaultTintColor, for: .normal)
-    
-               // detectIfScreenIsCaptured()
-    
-                return
+    @objc func loadCurrentTheme() {
+        
+        if #available(iOS 13, *) {
+            
+            self.questionLabel.textColor = .label
+            self.remainingQuestionsLabel.textColor = .secondaryLabel
+            //   self.quizTimerLabel.textColor = .secondaryLabel
+            //  self.blurView.effect = UserDefaultsManager.darkThemeSwitchIsOn ? UIBlurEffect(style: .dark) : UIBlurEffect(style: .light)
+            
+            self.answerButtons.forEach {
+                $0.backgroundColor = .themeStyle(dark: .orange, light: .defaultTintColor)
+                //  $0.dontInvertColors()
             }
-    
-            let currentThemeColor = UIColor.themeStyle(dark: .white, light: .black)
-    
-            if #available(iOS 13, *) {
-                self.activityIndicatorView.style = .medium
-            } else {
-               // self.activityIndicatorView.style = UserDefaultsManager.darkThemeSwitchIsOn ? .white : .gray
-            }
-            //self.helpButton.setTitleColor(dark: .orange, light: .defaultTintColor, for: .normal)
-            self.remainingQuestionsLabel.textColor = currentThemeColor
-           // self.quizTimerLabel.textColor = currentThemeColor
-            self.questionLabel.textColor = currentThemeColor
-            self.view.backgroundColor = .themeStyle(dark: .black, light: .white)
-          //  self.pauseButton.backgroundColor = .themeStyle(dark: .veryDarkGray, light: .veryLightGray)
-          //  self.pauseButton.setTitleColor(dark: .white, light: .defaultTintColor, for: .normal)
-          //  self.pauseView.backgroundColor = .themeStyle(dark: .lightGray, light: .veryVeryLightGray)
-    
-          //  self.pauseView.subviews.first?.subviews.forEach { ($0 as? UIButton)?.setTitleColor(dark: .black, light: .darkGray, for: .normal)
-           //     ($0 as? UIButton)?.backgroundColor = .themeStyle(dark: .warmColor, light: .warmYellow) }
-    
-            //self.blurView.effect = UserDefaultsManager.darkThemeSwitchIsOn ? UIBlurEffect(style: .dark) : UIBlurEffect(style: .light)
-    
-            self.answerButtons.forEach { $0.backgroundColor = .themeStyle(dark: .orange, light: .defaultTintColor) }
-    
-           // self.setNeedsStatusBarAppearanceUpdate()
-           // self.detectIfScreenIsCaptured()
+            
+            //  self.pauseButton.backgroundColor = .secondarySystemBackground
+            //  self.pauseButton.setTitleColor(dark: .white, light: .defaultTintColor, for: .normal)
+            //   self.helpButton.setTitleColor(dark: .orange, light: .defaultTintColor, for: .normal)
+            
+            // detectIfScreenIsCaptured()
+            
+            return
         }
+        
+        let currentThemeColor = UIColor.themeStyle(dark: .white, light: .black)
+        
+        if #available(iOS 13, *) {
+            self.activityIndicatorView.style = .medium
+        } else {
+            // self.activityIndicatorView.style = UserDefaultsManager.darkThemeSwitchIsOn ? .white : .gray
+        }
+        //self.helpButton.setTitleColor(dark: .orange, light: .defaultTintColor, for: .normal)
+        self.remainingQuestionsLabel.textColor = currentThemeColor
+        // self.quizTimerLabel.textColor = currentThemeColor
+        self.questionLabel.textColor = currentThemeColor
+        self.view.backgroundColor = .themeStyle(dark: .black, light: .white)
+        //  self.pauseButton.backgroundColor = .themeStyle(dark: .veryDarkGray, light: .veryLightGray)
+        //  self.pauseButton.setTitleColor(dark: .white, light: .defaultTintColor, for: .normal)
+        //  self.pauseView.backgroundColor = .themeStyle(dark: .lightGray, light: .veryVeryLightGray)
+        
+        //  self.pauseView.subviews.first?.subviews.forEach { ($0 as? UIButton)?.setTitleColor(dark: .black, light: .darkGray, for: .normal)
+        //     ($0 as? UIButton)?.backgroundColor = .themeStyle(dark: .warmColor, light: .warmYellow) }
+        
+        //self.blurView.effect = UserDefaultsManager.darkThemeSwitchIsOn ? UIBlurEffect(style: .dark) : UIBlurEffect(style: .light)
+        
+        self.answerButtons.forEach { $0.backgroundColor = .themeStyle(dark: .orange, light: .defaultTintColor) }
+        
+        // self.setNeedsStatusBarAppearanceUpdate()
+        // self.detectIfScreenIsCaptured()
+    }
     
     //    private func detectIfScreenIsCaptured() {
     //        if QuestionsAppOptions.privacyFeaturesEnabled, #available(iOS 11.0, *), UIScreen.main.isCaptured {
@@ -333,89 +344,105 @@ class QuestionViewController: UIViewController {
     //        }
     //    }
     
-        public func pickQuestion() {
-    
-//            if self.currentQuizOfTopic.options?.multipleCorrectAnswersAsMandatory ?? false {
-//                self.answersUntilNextQuestion -= 1
-//                guard self.answersUntilNextQuestion <= 0 else { return }
-//            }
-//
-    
-    
-    // Restore
-            UIView.animate(withDuration: 0.75) {
-                self.answerButtons.forEach { $0.alpha = 1 }
-//
-//                if UserDefaultsManager.score >= abs(QuestionsAppOptions.helpActionPoints) {
-//                    self.helpButton.alpha = 1.0
-//                }
-          }
-    
-            if let quiz0 = self.quiz.next() {
-    
-                let fullQuestion = quiz0.element
-   //  MARK: TODO
-              //  self.answersUntilNextQuestion = fullQuestion..count
-    
-                for answer in fullQuestion.answerList{
-                    if answer.ans_is_correct == 1{
-                        self.correctAnswerFromSet = answer.ans_id
-                    }
-                }
+    public func pickQuestion() {
+        
+        //            if self.currentQuizOfTopic.options?.multipleCorrectAnswersAsMandatory ?? false {
+        //                self.answersUntilNextQuestion -= 1
+        //                guard self.answersUntilNextQuestion <= 0 else { return }
+        //            }
+        //
+        
+        
+        // Restore
+        UIView.animate(withDuration: 0.75) {
+            self.answerButtons.forEach { $0.alpha = 1 }
+            //
+            //                if UserDefaultsManager.score >= abs(QuestionsAppOptions.helpActionPoints) {
+            //                    self.helpButton.alpha = 1.0
+            //                }
+        }
+        
+        if let quiz0 = self.quiz.next() {
+            self.setupScreenList.removeAll()
+            for setup in quiz0.element.questionSetupList{
                 
-                self.questionLabel.text = fullQuestion.question
-    
-                let answers = fullQuestion.answerList
-    
-                for i in 0..<self.answerButtons.count {
-                    self.answerButtons[i].setTitle(answers[i].answer, for: .normal)
-                    self.answerButtons[i].tag = answers[i].ans_id
+                let backgroundColorOne = UIColor(red: 236/255, green: 210/255, blue: 175/255, alpha: 1)
+                      let backgroundColorTwo = UIColor(red: 37/255, green: 37/255, blue: 42/255, alpha: 1)
+                      let titleFont = UIFont(name: "American Typewriter", size: 24)!
+                   
+                let itemOne = OnboardingItemInfo(informationImage: UIImage(named: setup.setup_img_URL.trimmingCharacters(in: .whitespacesAndNewlines)) ?? UIImage(), title: "", description: setup.setup_desc, pageIcon: UIImage(), color: backgroundColorOne, titleColor: backgroundColorTwo, descriptionColor: backgroundColorTwo, titleFont: titleFont, descriptionFont: titleFont)
+                    self.setupScreenList.append(itemOne)
+//                fetchImage(questionSetup: setup).done { (setupScreen) in
+//                    self.setupScreenList.append(setupScreen)
+//
+//                }
+            }
+            self.invokeSetupScreen()
+            
+            
+            let fullQuestion = quiz0.element
+            //  MARK: TODO
+            //  self.answersUntilNextQuestion = fullQuestion..count
+            
+            for answer in fullQuestion.answerList{
+                if answer.ans_is_correct == 1{
+                    self.correctAnswerFromSet = answer.ans_id
                 }
-    
-                self.remainingQuestionsLabel.text = "\(quiz0.offset + 1)/\(self.set.count)"
-    
-//                OnlineImagesManager.shared.load(url: fullQuestion.imageURL ?? "", prepareForDownload: {
-//                    self.questionImageButton.alpha = 0.0
-//                    self.questionImageButton.isHidden = true
-//                    self.activityIndicatorView.startAnimating()
-//                },
-//                onSuccess: { cachedImage in
-//                    self.activityIndicatorView.stopAnimating()
-//                    self.questionImageButton.isHidden = false
-//                    UIView.transition(with: self.questionImageButton, duration: 0.2, options: [.curveEaseInOut], animations: {
-//                        self.questionImageButton.alpha = 1.0
-//                        self.questionImageButton.setImage(cachedImage, for: .normal)
-//                    })
-//                },
-//                onError: { _ in
-//                    UIView.transition(with: self.questionImageButton, duration: 0.2, options: [.curveEaseInOut], animations: {
-//                        self.questionImageButton.alpha = 0.0
-//                    }, completion: { completed in
-//                        self.questionImageButton.isHidden = true
-//                    })
-//                    self.activityIndicatorView.stopAnimating()
-//                })
             }
-            else {
-                self.endOfQuestionsAlert()
+            
+            self.questionLabel.text = fullQuestion.question
+            
+            let answers = fullQuestion.answerList
+            
+            for i in 0..<self.answerButtons.count {
+                self.answerButtons[i].setTitle(answers[i].answer, for: .normal)
+                self.answerButtons[i].tag = answers[i].ans_id
             }
+            
+            self.remainingQuestionsLabel.text = "\(quiz0.offset + 1)/\(self.set.count)"
+            
+            //                OnlineImagesManager.shared.load(url: fullQuestion.imageURL ?? "", prepareForDownload: {
+            //                    self.questionImageButton.alpha = 0.0
+            //                    self.questionImageButton.isHidden = true
+            //                    self.activityIndicatorView.startAnimating()
+            //                },
+            //                onSuccess: { cachedImage in
+            //                    self.activityIndicatorView.stopAnimating()
+                                self.questionImageButton.isHidden = false
+                                UIView.transition(with: self.questionImageButton, duration: 0.2, options: [.curveEaseInOut], animations: {
+                                    self.questionImageButton.alpha = 1.0
+                                    self.questionImageButton.setImage(UIImage(named: fullQuestion.img_URL?.trimmingCharacters(in: .whitespacesAndNewlines) ?? "beach"), for: .normal)
+                                })
+            //                },
+            //                onError: { _ in
+            //                    UIView.transition(with: self.questionImageButton, duration: 0.2, options: [.curveEaseInOut], animations: {
+            //                        self.questionImageButton.alpha = 0.0
+            //                    }, completion: { completed in
+            //                        self.questionImageButton.isHidden = true
+            //                    })
+            //                    self.activityIndicatorView.stopAnimating()
+            //                })
         }
-            
-            
-            
+        else {
+            self.endOfQuestionsAlert()
+        }
+    }
+    
+    
+    
     // MARK: TODO
-        private func isSetCompleted() -> Bool {
-//            let topicName = SetOfTopics.shared.currentTopics[currentTopicIndex].displayedName
-//            if let topicQuiz = DataStoreArchiver.shared.completedSets[topicName] {
-//                return topicQuiz[currentSetIndex] ?? false
-//            }
-//            return false
-            
-            if quiz.next() == nil{
-                return true
-            }
-            return false
+    private func isSetCompleted() -> Bool {
+        //            let topicName = SetOfTopics.shared.currentTopics[currentTopicIndex].displayedName
+        //            if let topicQuiz = DataStoreArchiver.shared.completedSets[topicName] {
+        //                return topicQuiz[currentSetIndex] ?? false
+        //            }
+        //            return false
+        
+        if quiz.next() == nil{
+            return true
         }
+        return false
+    }
     
     
     // MARK: TODO
@@ -440,70 +467,70 @@ class QuestionViewController: UIViewController {
     //        }
     //    }
     // MARK: TODO
-        private func repeatActionDetailed() {
-            self.repeatTimes += 1
-            self.correctAnswers = 0
-            self.incorrectAnswers = 0
-           // self.updateTimer()
-            self.setUpQuiz()
-           // UserDefaultsManager.score = oldScore
-            self.pickQuestion()
+    private func repeatActionDetailed() {
+        self.repeatTimes += 1
+        self.correctAnswers = 0
+        self.incorrectAnswers = 0
+        // self.updateTimer()
+        self.setUpQuiz()
+        // UserDefaultsManager.score = oldScore
+        self.pickQuestion()
+    }
+    
+    
+    //  MARK: TODO
+    @objc private func verify(answer: UInt8) {
+        let isCorrectAnswer: Bool
+        //  self.pausePreviousSounds()
+        if correctAnswerFromSet == answer{
+            isCorrectAnswer = true
+        }else{
+            isCorrectAnswer = false
         }
-    
-    
-   //  MARK: TODO
-        @objc private func verify(answer: UInt8) {
-            let isCorrectAnswer: Bool
-          //  self.pausePreviousSounds()
-            if correctAnswerFromSet == answer{
-                isCorrectAnswer = true
-            }else{
-                isCorrectAnswer = false
-            }
-            
-
-           // let willNoticeIfAnswerIsCorrectOrIncorrect = self.currentQuizOfTopic.options?.showCorrectIncorrectAnswer ?? true
-    
+        
+        
+        // let willNoticeIfAnswerIsCorrectOrIncorrect = self.currentQuizOfTopic.options?.showCorrectIncorrectAnswer ?? true
+        
+        if isCorrectAnswer {
+            correctAnswers += 1
+            print("## Correct Answer Selected ##")
+            //                if willNoticeIfAnswerIsCorrectOrIncorrect {
+            //                    DispatchQueue.global().async { AudioSounds.correct?.play() }
+            //                }
+        }
+        else {
+            incorrectAnswers += 1
+            print("## Incorrect Answer Selected ##")
+            //                if willNoticeIfAnswerIsCorrectOrIncorrect {
+            //                    DispatchQueue.global().async { AudioSounds.incorrect?.play() }
+            //                }
+        }
+        
+        //            UIView.transition(with: self.answerButtons[Int(answer)], duration: 0.25, options: [.transitionCrossDissolve], animations: {
+        //                if isCorrectAnswer {
+        //                    self.answerButtons[Int(answer)].backgroundColor = isCorrectAnswer ? .darkGreen : .alternativeRed
+        //                } else {
+        //                    self.answerButtons[Int(answer)].backgroundColor = .themeStyle(dark: .warmYellow, light: .coolBlue)
+        //                }
+        //
+        //            }) { completed in
+        //                if completed {
+        self.pickQuestion()
+        //                    UIView.transition(with: self.answerButtons[Int(answer)], duration: 0.2, options: [.transitionCrossDissolve], animations: {
+        //                        self.answerButtons[Int(answer)].backgroundColor = .themeStyle(dark: .orange, light: .defaultTintColor)
+        //                    })
+        //                }
+        //            }
+        
+        
+        if #available(iOS 10.0, *) {
             if isCorrectAnswer {
-                correctAnswers += 1
-                print("## Correct Answer Selected ##")
-//                if willNoticeIfAnswerIsCorrectOrIncorrect {
-//                    DispatchQueue.global().async { AudioSounds.correct?.play() }
-//                }
-            }
-            else {
-                incorrectAnswers += 1
-                print("## Incorrect Answer Selected ##")
-//                if willNoticeIfAnswerIsCorrectOrIncorrect {
-//                    DispatchQueue.global().async { AudioSounds.incorrect?.play() }
-//                }
-            }
-    
-//            UIView.transition(with: self.answerButtons[Int(answer)], duration: 0.25, options: [.transitionCrossDissolve], animations: {
-//                if isCorrectAnswer {
-//                    self.answerButtons[Int(answer)].backgroundColor = isCorrectAnswer ? .darkGreen : .alternativeRed
-//                } else {
-//                    self.answerButtons[Int(answer)].backgroundColor = .themeStyle(dark: .warmYellow, light: .coolBlue)
-//                }
-//
-//            }) { completed in
-//                if completed {
-                    self.pickQuestion()
-//                    UIView.transition(with: self.answerButtons[Int(answer)], duration: 0.2, options: [.transitionCrossDissolve], animations: {
-//                        self.answerButtons[Int(answer)].backgroundColor = .themeStyle(dark: .orange, light: .defaultTintColor)
-//                    })
-//                }
-//            }
-            
-            
-            if #available(iOS 10.0, *) {
-                if isCorrectAnswer {
-                    FeedbackGenerator.notificationOcurredOf(type: isCorrectAnswer ? .success : .error)
-                } else {
-                    FeedbackGenerator.impactOcurredWith(style: .light)
-                }
+                FeedbackGenerator.notificationOcurredOf(type: isCorrectAnswer ? .success : .error)
+            } else {
+                FeedbackGenerator.impactOcurredWith(style: .light)
             }
         }
+    }
     
     //    private func pausePreviousSounds() {
     //        DispatchQueue.global().async {
@@ -521,14 +548,14 @@ class QuestionViewController: UIViewController {
     // MARK: TODO
     private func setUpQuiz() {
         
-//        for questionData in self.questionDataList{
-//            print("#######\n")
-//            print(" Q Data iD: \(questionData.question_id)")
-//            print(" Q Data Question: \(questionData.question)")
-//            print(" Q Data Setup: \(questionData.questionSetupList[0].setup_desc)")
-//            print(" Q Data Answer: \(questionData.answerList[0].answer)")
-//        }
-
+        //        for questionData in self.questionDataList{
+        //            print("#######\n")
+        //            print(" Q Data iD: \(questionData.question_id)")
+        //            print(" Q Data Question: \(questionData.question)")
+        //            print(" Q Data Setup: \(questionData.questionSetupList[0].setup_desc)")
+        //            print(" Q Data Answer: \(questionData.answerList[0].answer)")
+        //        }
+        
         self.questionDataList.sorted(by: { $0.question_id < $1.question_id })
         set = self.questionDataList
         quiz = set.enumerated().makeIterator()
@@ -542,38 +569,38 @@ class QuestionViewController: UIViewController {
     
     // Alerts
     // MARK: TODO
-        private func endOfQuestionsAlert() {
-    
-            //let helpScore = self.oldScore - UserDefaultsManager.score
-          //  let score = (self.correctAnswers * QuestionsAppOptions.correctAnswerPoints) + (self.incorrectAnswers * QuestionsAppOptions.incorrectAnswerPoints) - helpScore
-                        //(correctAnswers * 20) - (incorrectAnswers * 10) - helpScore
-    
-          //  let extraTitle = (self.quizTimerLabel.text == "0s" || self.quizTimerLabel.text == "0.0s") ? "(\(Localized.Questions_Alerts_TimeRunOut)\n" : ""
-    
-//            let title = " pts"
-//            let message = ("\(correctAnswers)/\(set.count)")
-////
-//            let alertViewController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-//
-//            alertViewController.addAction(title: "Ok", style: .default) { action in self.okActionDetailed() }
-//
-            if ((self.repeatTimes < 2) && !isSetCompleted()) {
-                 self.repeatActionDetailed()
-//                let repeatText = Localized.Questions_Alerts_End_Repeat + " (\(2 - self.repeatTimes))"
-//                alertViewController.addAction(title: repeatText, style: .cancel) { action in
-////                    self.repeatActionDetailed()
-//                    self.blurView.isHidden = true
-//                }
-            }
-    
-//            if QuestionsAppOptions.privacyFeaturesEnabled {
-//                UIView.transition(with: self.view, duration: 0.2, options: [.transitionCrossDissolve], animations: {
-//                    self.blurView.isHidden = false
-//                })
-//            }
-    
-           // self.present(alertViewController, animated: true)
+    private func endOfQuestionsAlert() {
+        
+        //let helpScore = self.oldScore - UserDefaultsManager.score
+        //  let score = (self.correctAnswers * QuestionsAppOptions.correctAnswerPoints) + (self.incorrectAnswers * QuestionsAppOptions.incorrectAnswerPoints) - helpScore
+        //(correctAnswers * 20) - (incorrectAnswers * 10) - helpScore
+        
+        //  let extraTitle = (self.quizTimerLabel.text == "0s" || self.quizTimerLabel.text == "0.0s") ? "(\(Localized.Questions_Alerts_TimeRunOut)\n" : ""
+        
+        //            let title = " pts"
+        //            let message = ("\(correctAnswers)/\(set.count)")
+        ////
+        //            let alertViewController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        //
+        //            alertViewController.addAction(title: "Ok", style: .default) { action in self.okActionDetailed() }
+        //
+        if ((self.repeatTimes < 2) && !isSetCompleted()) {
+            self.repeatActionDetailed()
+            //                let repeatText = Localized.Questions_Alerts_End_Repeat + " (\(2 - self.repeatTimes))"
+            //                alertViewController.addAction(title: repeatText, style: .cancel) { action in
+            ////                    self.repeatActionDetailed()
+            //                    self.blurView.isHidden = true
+            //                }
         }
+        
+        //            if QuestionsAppOptions.privacyFeaturesEnabled {
+        //                UIView.transition(with: self.view, duration: 0.2, options: [.transitionCrossDissolve], animations: {
+        //                    self.blurView.isHidden = false
+        //                })
+        //            }
+        
+        // self.present(alertViewController, animated: true)
+    }
     //
     //    private func showOKAlertWith(title: String, message: String) {
     //        let alertViewController = UIAlertController.OKAlert(title: title, message: message)
@@ -583,177 +610,177 @@ class QuestionViewController: UIViewController {
     
     
     
-       
-       private func setupQuestions(){
-           
-           
-           
-           retrieveQuestionData { (question) in
-               print("Questions DOne ")
-               
-               
-               for question in self.questionList{
-                   print(" Question Outside order: \(question.question_id)")
-                   self.questionSetupList.removeAll()
-                   self.answerList.removeAll()
-                   
-                   self.retrieveQuestionSetupData(questionId: question.question_id).done { (questionSetup) in
-                       //                   print("Question# Inside order: \(question.question_id)")
-                       //                    print("Question# Done \(questionSetup[0].setup_desc)")
-                       
-                       self.retrieveAnswerData(questionId: question.question_id).done { (answer) in
-                           print("Question# Inside order: \(question.question_id)")
-                           print("Question# Setup \(questionSetup[0].setup_desc)")
-                           print("Question# Answer \(answer[0].answer)")
-                           
-                           
-                           self.insertQuestionIntoList(questionData: QuestionData(question_id: question.question_id, question: question.question, imageURL: question.img_URL, answerList: answer, questionSetupList: questionSetup))
-                       }
-                   }
-                   
-                   
-               }
-               
-               
-              //
-               
-           }
     
-       }
-       
-       
-       private func insertQuestionIntoList(questionData:QuestionData){
-           self.questionDataList.append(questionData)
-           if self.questionDataList.count == 10{
-               print("Data Insertion complete")
-               self.setUpQuiz()
-           }
-       }
-       
-       private func retrieveQuestionData(completion: @escaping (Question?)->()) {
-           // MARK: TODO - Add dynamic variable for Story ID
-           print(" ### getQuestionByStoryId ###")
-           guard let urlToExecute  = URL(string: Constants.baseURL+"/getQuestionByStoryId/\(1)") else {
-               return
-           }
-           
-           AF.request(urlToExecute).responseJSON {response in
-               debugPrint(response.result)
-               
-               
-               switch response.result {
-               case .success:
-                   if let data = response.data {
-                       print(data)
-                       // Convert This in JSON
-                       do {
-                           let responseDecoded = try JSONDecoder().decode(Array<Question>.self, from: data)
-                           print("Question ", responseDecoded[0].question)
-                           self.questionList = responseDecoded
-                           completion(responseDecoded[0])
-                           
-                           
-                       }catch let error as NSError{
-                           print(error)
-                       }
-                       
-                   }
-               case .failure(let error):
-                   print("Error:", error)
-               }
-               
-           }
-           
-       }
-       
-       private func retrieveQuestionSetupData(questionId:Int) -> Promise<[QuestionSetup]> {
-           
-           
-           return Promise { fulfill in
-               
-               print(" ### getQuestion Answer Id: \(questionId)###")
-               guard let urlToExecute  = URL(string: Constants.baseURL+"/getQuestionSetupByQuestionId/\(questionId)" ) else {
-                   return()
-               }
-               AF.request(urlToExecute).responseJSON {response in
-                   debugPrint(response.result)
-                   
-                   
-                   switch response.result {
-                   case .success:
-                       if let data = response.data {
-                           print(data)
-                           // Convert This in JSON
-                           do {
-                               let responseDecoded = try JSONDecoder().decode(Array<QuestionSetup>.self, from: data)
-                               print("Setup Desc ", responseDecoded[0].setup_desc)
-                               //self.questionSetupList = responseDecoded
-                               fulfill.fulfill(responseDecoded)
-                               
-                               //                                myGroup.wait()
-                               
-                               
-                               
-                               //                          self.scenarioTableView.reloadData()
-                           }catch let error as NSError{
-                               print(error)
-                               
-                           }
-                           
-                       }
-                   case .failure(let error):
-                       print("Error:", error)
-                   }
-                   
-               }
-           }
-           
-       }
-       
-       private func retrieveAnswerData(questionId:Int) -> Promise<[Answer]> {
-           
-           
-           return Promise { fulfill in
-               
-               print(" ### getQuestionSetupId: \(questionId)###")
-               guard let urlToExecute  = URL(string: Constants.baseURL+"/getAnswerByQuestionId/\(questionId)") else {
-                   return()
-               }
-               AF.request(urlToExecute).responseJSON {response in
-                   debugPrint(response.result)
-                   
-                   
-                   switch response.result {
-                   case .success:
-                       if let data = response.data {
-                           print(data)
-                           // Convert This in JSON
-                           do {
-                               let responseDecoded = try JSONDecoder().decode(Array<Answer>.self, from: data)
-                               print("Setup Desc ", responseDecoded[0].answer)
-                               //self.questionSetupList = responseDecoded
-                               fulfill.fulfill(responseDecoded)
-                               
-                               //                                myGroup.wait()
-                               
-                               
-                               
-                               //                          self.scenarioTableView.reloadData()
-                           }catch let error as NSError{
-                               print(error)
-                               
-                           }
-                           
-                       }
-                   case .failure(let error):
-                       print("Error:", error)
-                   }
-                   
-               }
-           }
-           
-       }
-       
+    private func setupQuestions(){
+        
+        
+        
+        retrieveQuestionData { (question) in
+            print("Questions DOne ")
+            
+            
+            for question in self.questionList{
+                print(" Question Outside order: \(question.question_id)")
+                self.questionSetupList.removeAll()
+                self.answerList.removeAll()
+                
+                self.retrieveQuestionSetupData(questionId: question.question_id).done { (questionSetup) in
+                    //                   print("Question# Inside order: \(question.question_id)")
+                    //                    print("Question# Done \(questionSetup[0].setup_desc)")
+                    
+                    self.retrieveAnswerData(questionId: question.question_id).done { (answer) in
+                        print("Question# Inside order: \(question.question_id)")
+                        print("Question# Setup \(questionSetup[0].setup_desc)")
+                        print("Question# Answer \(answer[0].answer)")
+                        
+                        
+                        self.insertQuestionIntoList(questionData: QuestionData(question_id: question.question_id, question: question.question, imageURL: question.img_URL, answerList: answer, questionSetupList: questionSetup))
+                    }
+                }
+                
+                
+            }
+            
+            
+            //
+            
+        }
+        
+    }
+    
+    
+    private func insertQuestionIntoList(questionData:QuestionData){
+        self.questionDataList.append(questionData)
+        if self.questionDataList.count == 10{
+            print("Data Insertion complete")
+            self.setUpQuiz()
+        }
+    }
+    
+    private func retrieveQuestionData(completion: @escaping (Question?)->()) {
+        // MARK: TODO - Add dynamic variable for Story ID
+        print(" ### getQuestionByStoryId ###")
+        guard let urlToExecute  = URL(string: Constants.baseURL+"/getQuestionByStoryId/\(1)") else {
+            return
+        }
+        
+        AF.request(urlToExecute).responseJSON {response in
+            debugPrint(response.result)
+            
+            
+            switch response.result {
+            case .success:
+                if let data = response.data {
+                    print(data)
+                    // Convert This in JSON
+                    do {
+                        let responseDecoded = try JSONDecoder().decode(Array<Question>.self, from: data)
+                        print("Question ", responseDecoded[0].question)
+                        self.questionList = responseDecoded
+                        completion(responseDecoded[0])
+                        
+                        
+                    }catch let error as NSError{
+                        print(error)
+                    }
+                    
+                }
+            case .failure(let error):
+                print("Error:", error)
+            }
+            
+        }
+        
+    }
+    
+    private func retrieveQuestionSetupData(questionId:Int) -> Promise<[QuestionSetup]> {
+        
+        
+        return Promise { fulfill in
+            
+            print(" ### getQuestion Answer Id: \(questionId)###")
+            guard let urlToExecute  = URL(string: Constants.baseURL+"/getQuestionSetupByQuestionId/\(questionId)" ) else {
+                return()
+            }
+            AF.request(urlToExecute).responseJSON {response in
+                debugPrint(response.result)
+                
+                
+                switch response.result {
+                case .success:
+                    if let data = response.data {
+                        print(data)
+                        // Convert This in JSON
+                        do {
+                            let responseDecoded = try JSONDecoder().decode(Array<QuestionSetup>.self, from: data)
+                            print("Setup Desc ", responseDecoded[0].setup_desc)
+                            //self.questionSetupList = responseDecoded
+                            fulfill.fulfill(responseDecoded)
+                            
+                            //                                myGroup.wait()
+                            
+                            
+                            
+                            //                          self.scenarioTableView.reloadData()
+                        }catch let error as NSError{
+                            print(error)
+                            
+                        }
+                        
+                    }
+                case .failure(let error):
+                    print("Error:", error)
+                }
+                
+            }
+        }
+        
+    }
+    
+    private func retrieveAnswerData(questionId:Int) -> Promise<[Answer]> {
+        
+        
+        return Promise { fulfill in
+            
+            print(" ### getQuestionSetupId: \(questionId)###")
+            guard let urlToExecute  = URL(string: Constants.baseURL+"/getAnswerByQuestionId/\(questionId)") else {
+                return()
+            }
+            AF.request(urlToExecute).responseJSON {response in
+                debugPrint(response.result)
+                
+                
+                switch response.result {
+                case .success:
+                    if let data = response.data {
+                        print(data)
+                        // Convert This in JSON
+                        do {
+                            let responseDecoded = try JSONDecoder().decode(Array<Answer>.self, from: data)
+                            print("Setup Desc ", responseDecoded[0].answer)
+                            //self.questionSetupList = responseDecoded
+                            fulfill.fulfill(responseDecoded)
+                            
+                            //                                myGroup.wait()
+                            
+                            
+                            
+                            //                          self.scenarioTableView.reloadData()
+                        }catch let error as NSError{
+                            print(error)
+                            
+                        }
+                        
+                    }
+                case .failure(let error):
+                    print("Error:", error)
+                }
+                
+            }
+        }
+        
+    }
+    
 
-
+    
 }
