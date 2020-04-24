@@ -14,6 +14,7 @@ import Alamofire
 import AlamofireImage
 import paper_onboarding
 import PromiseKit
+import PMAlertController
 
 class QuestionViewController: UIViewController {
     
@@ -31,7 +32,7 @@ class QuestionViewController: UIViewController {
     
     
     @IBOutlet weak var questionLabel: UILabel!
-   
+    
     @IBOutlet weak var questionImageButton: UIButton!
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     
@@ -63,6 +64,7 @@ class QuestionViewController: UIViewController {
     var questionList = [Question]()
     var questionSetupList = [QuestionSetup]()
     var answerList = [Answer]()
+    var correctIncorrectAnswerList = [Answer]()
     var questionDataList = [QuestionData]()
     
     // MARK: View life cycle
@@ -78,11 +80,11 @@ class QuestionViewController: UIViewController {
         
         setupQuestions()
         
-                self.questionImageButton.setImage(nil, for: .normal)
-                self.questionImageButton.imageView?.contentMode = .scaleAspectFit
-                self.questionImageButton.imageView?.clipsToBounds = true
-                self.questionImageButton.clipsToBounds = true
-                self.questionImageButton.layer.cornerRadius = 10
+        self.questionImageButton.setImage(nil, for: .normal)
+        self.questionImageButton.imageView?.contentMode = .scaleAspectFit
+        self.questionImageButton.imageView?.clipsToBounds = true
+        self.questionImageButton.clipsToBounds = true
+        self.questionImageButton.layer.cornerRadius = 10
         
         //        if self.isSetFromJSON {
         //            self.goBack.isHidden = true
@@ -228,6 +230,7 @@ class QuestionViewController: UIViewController {
                     shadowOpacity: 0.15,
                     shadowRadius: 4)
             )
+            
             button.tag = set.first?.answerList[i].ans_id ?? i
             button.addTarget(self, action: #selector(self.verifyButton), for: .touchDown)
             button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
@@ -363,19 +366,22 @@ class QuestionViewController: UIViewController {
         }
         
         if let quiz0 = self.quiz.next() {
+            self.correctIncorrectAnswerList.removeAll()
             self.setupScreenList.removeAll()
+            
+            
             for setup in quiz0.element.questionSetupList{
                 
                 let backgroundColorOne = UIColor(red: 236/255, green: 210/255, blue: 175/255, alpha: 1)
-                      let backgroundColorTwo = UIColor(red: 37/255, green: 37/255, blue: 42/255, alpha: 1)
-                      let titleFont = UIFont(name: "American Typewriter", size: 24)!
-                   
+                let backgroundColorTwo = UIColor(red: 37/255, green: 37/255, blue: 42/255, alpha: 1)
+                let titleFont = UIFont(name: "American Typewriter", size: 24)!
+                
                 let itemOne = OnboardingItemInfo(informationImage: UIImage(named: setup.setup_img_URL.trimmingCharacters(in: .whitespacesAndNewlines)) ?? UIImage(), title: "", description: setup.setup_desc, pageIcon: UIImage(), color: backgroundColorOne, titleColor: backgroundColorTwo, descriptionColor: backgroundColorTwo, titleFont: titleFont, descriptionFont: titleFont)
-                    self.setupScreenList.append(itemOne)
-//                fetchImage(questionSetup: setup).done { (setupScreen) in
-//                    self.setupScreenList.append(setupScreen)
-//
-//                }
+                self.setupScreenList.append(itemOne)
+                //                fetchImage(questionSetup: setup).done { (setupScreen) in
+                //                    self.setupScreenList.append(setupScreen)
+                //
+                //                }
             }
             self.invokeSetupScreen()
             
@@ -383,6 +389,8 @@ class QuestionViewController: UIViewController {
             let fullQuestion = quiz0.element
             //  MARK: TODO
             //  self.answersUntilNextQuestion = fullQuestion..count
+            
+            self.correctIncorrectAnswerList = fullQuestion.answerList
             
             for answer in fullQuestion.answerList{
                 if answer.ans_is_correct == 1{
@@ -408,11 +416,11 @@ class QuestionViewController: UIViewController {
             //                },
             //                onSuccess: { cachedImage in
             //                    self.activityIndicatorView.stopAnimating()
-                                self.questionImageButton.isHidden = false
-                                UIView.transition(with: self.questionImageButton, duration: 0.2, options: [.curveEaseInOut], animations: {
-                                    self.questionImageButton.alpha = 1.0
-                                    self.questionImageButton.setImage(UIImage(named: fullQuestion.img_URL?.trimmingCharacters(in: .whitespacesAndNewlines) ?? "beach"), for: .normal)
-                                })
+            self.questionImageButton.isHidden = false
+            UIView.transition(with: self.questionImageButton, duration: 0.2, options: [.curveEaseInOut], animations: {
+                self.questionImageButton.alpha = 1.0
+                self.questionImageButton.setImage(UIImage(named: fullQuestion.img_URL?.trimmingCharacters(in: .whitespacesAndNewlines) ?? "beach"), for: .normal)
+            })
             //                },
             //                onError: { _ in
             //                    UIView.transition(with: self.questionImageButton, duration: 0.2, options: [.curveEaseInOut], animations: {
@@ -494,6 +502,11 @@ class QuestionViewController: UIViewController {
         if isCorrectAnswer {
             correctAnswers += 1
             print("## Correct Answer Selected ##")
+            for answer in correctIncorrectAnswerList{
+                if answer.ans_is_correct == 1{
+                    presentFeebackDialog(title: "Correct Answer🥳👍", description: answer.ans_feedback, imageURL: answer.ans_feed_img_URL)
+                }
+            }
             //                if willNoticeIfAnswerIsCorrectOrIncorrect {
             //                    DispatchQueue.global().async { AudioSounds.correct?.play() }
             //                }
@@ -501,10 +514,17 @@ class QuestionViewController: UIViewController {
         else {
             incorrectAnswers += 1
             print("## Incorrect Answer Selected ##")
+            
+            for answer in correctIncorrectAnswerList{
+                if answer.ans_is_correct == 0{
+                    presentFeebackDialog(title: "Incorrect Answer☹️👎", description: answer.ans_feedback, imageURL: answer.ans_feed_img_URL)
+                }
+            }
             //                if willNoticeIfAnswerIsCorrectOrIncorrect {
             //                    DispatchQueue.global().async { AudioSounds.incorrect?.play() }
             //                }
         }
+       
         
         //            UIView.transition(with: self.answerButtons[Int(answer)], duration: 0.25, options: [.transitionCrossDissolve], animations: {
         //                if isCorrectAnswer {
@@ -515,7 +535,7 @@ class QuestionViewController: UIViewController {
         //
         //            }) { completed in
         //                if completed {
-        self.pickQuestion()
+        
         //                    UIView.transition(with: self.answerButtons[Int(answer)], duration: 0.2, options: [.transitionCrossDissolve], animations: {
         //                        self.answerButtons[Int(answer)].backgroundColor = .themeStyle(dark: .orange, light: .defaultTintColor)
         //                    })
@@ -530,6 +550,19 @@ class QuestionViewController: UIViewController {
                 FeedbackGenerator.impactOcurredWith(style: .light)
             }
         }
+    }
+    
+    private func presentFeebackDialog(title:String,description:String,imageURL:String){
+        let alertVC = PMAlertController(title: title, description:description, image: UIImage(named: imageURL), style: .walkthrough)
+        
+        alertVC.addAction(PMAlertAction(title: "OK", style: .default, action: { () in
+            
+            self.pickQuestion()
+        }))
+        
+        
+        
+        self.present(alertVC, animated: true, completion: nil)
     }
     
     //    private func pausePreviousSounds() {
@@ -556,8 +589,8 @@ class QuestionViewController: UIViewController {
         //            print(" Q Data Answer: \(questionData.answerList[0].answer)")
         //        }
         
-        self.questionDataList.sorted(by: { $0.question_id < $1.question_id })
-        set = self.questionDataList
+        
+        set = self.questionDataList.sorted(by: { $0.question_id < $1.question_id })
         quiz = set.enumerated().makeIterator()
         
         
@@ -781,6 +814,6 @@ class QuestionViewController: UIViewController {
         
     }
     
-
+    
     
 }

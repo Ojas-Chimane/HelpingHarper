@@ -64,8 +64,9 @@ class SetupScreenViewController: UIViewController,PaperOnboardingDataSource,Pape
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         print("View DId load")
-        setupScreenView.dataSource = self
         setupScreenView.delegate = self
+        setupScreenView.dataSource = self
+        
         
         if onBoardList.count == 1{
                    UIView.animate(withDuration: 0.4, animations: {
@@ -102,6 +103,16 @@ class SetupScreenViewController: UIViewController,PaperOnboardingDataSource,Pape
         }
         
         
+    }
+    
+    func onboardingConfigurationItem(_ item: OnboardingContentViewItem, index _: Int) {
+          // if !onBoardList[index].imageName.contains("ic_") {
+                 if let imageSize = item.imageView?.image?.size {
+                     item.informationImageWidthConstraint?.constant = 350
+                     item.informationImageHeightConstraint?.constant = 350
+                     item.setNeedsUpdateConstraints()
+                 }
+         //    }
     }
     //
     //    private func retrieveImage()->UIImage{
