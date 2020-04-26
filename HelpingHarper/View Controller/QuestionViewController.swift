@@ -74,6 +74,10 @@ class QuestionViewController: UIViewController {
     //      // return SetOfTopics.shared.currentTopics[currentTopicIndex].topic
     //    }
     
+    
+    
+    
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -150,6 +154,20 @@ class QuestionViewController: UIViewController {
             vc.onBoardList = self.setupScreenList
             present(vc, animated: true, completion: nil)
         }
+    }
+    
+    
+    @IBAction func onPauseButtonTapped(_ sender: Any) {
+        let alertVC = PMAlertController(title: "Game Paused", description:"", image: nil, style: .alert)
+               
+               alertVC.addAction(PMAlertAction(title: "Quit Level", style: .default, action: { ()
+                self.dismiss(animated: true, completion: nil)
+               }))
+                alertVC.addAction(PMAlertAction(title: "Resume", style: .default, action: { ()
+                      
+                      }))
+        self.present(alertVC, animated: true, completion: nil)
+        
     }
     
     
@@ -233,7 +251,7 @@ class QuestionViewController: UIViewController {
             
             button.tag = set.first?.answerList[i].ans_id ?? i
             button.addTarget(self, action: #selector(self.verifyButton), for: .touchDown)
-            button.titleLabel?.font = UIFont(name: "American Typewriter", size: 18)!
+            button.titleLabel?.font = UIFont(name: "Chalkduster", size: 14)!
             
             self.answerButtons.append(button)
             self.answersStackView.addArrangedSubview(button)
@@ -374,7 +392,7 @@ class QuestionViewController: UIViewController {
                 
                 let backgroundColorOne = UIColor(red: 236/255, green: 210/255, blue: 175/255, alpha: 1)
                 let backgroundColorTwo = UIColor(red: 37/255, green: 37/255, blue: 42/255, alpha: 1)
-                let titleFont = UIFont(name: "American Typewriter", size: 24)!
+                let titleFont = UIFont(name: "Chalkduster", size: 22)!
                 
                 let itemOne = OnboardingItemInfo(informationImage: UIImage(named: setup.setup_img_URL.trimmingCharacters(in: .whitespacesAndNewlines)) ?? UIImage(), title: "", description: setup.setup_desc, pageIcon: UIImage(), color: backgroundColorOne, titleColor: backgroundColorTwo, descriptionColor: backgroundColorTwo, titleFont: titleFont, descriptionFont: titleFont)
                 self.setupScreenList.append(itemOne)

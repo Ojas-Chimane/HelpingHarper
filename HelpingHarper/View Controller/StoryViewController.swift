@@ -46,6 +46,7 @@ class StoryViewController: UIViewController {
                            let responseDecoded = try JSONDecoder().decode(Array<Story>.self, from: data)
                         print("Story Name: ", responseDecoded[0].story_name)
                            self.storyList = responseDecoded
+                           self.storyTableView.tableFooterView = UIView()
                            self.storyTableView.reloadData()
                        }catch let error as NSError{
                            print(error)

@@ -45,6 +45,7 @@ class ScenarioVC: UIViewController {
                         let responseDecoded = try JSONDecoder().decode(Array<Scenario>.self, from: data)
                         print("Scenario ", responseDecoded[0].scenario_name)
                         self.scenarioList = responseDecoded
+                        self.scenarioTableView.tableFooterView = UIView()
                         self.scenarioTableView.reloadData()
                     }catch let error as NSError{
                         print(error)
