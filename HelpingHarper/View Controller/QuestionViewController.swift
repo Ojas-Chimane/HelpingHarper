@@ -233,7 +233,7 @@ class QuestionViewController: UIViewController {
             
             button.tag = set.first?.answerList[i].ans_id ?? i
             button.addTarget(self, action: #selector(self.verifyButton), for: .touchDown)
-            button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
+            button.titleLabel?.font = UIFont(name: "American Typewriter", size: 18)!
             
             self.answerButtons.append(button)
             self.answersStackView.addArrangedSubview(button)
@@ -454,31 +454,29 @@ class QuestionViewController: UIViewController {
     
     
     // MARK: TODO
-    //    private func saveScore() {
-    //
-    //        if !self.isSetCompleted() {
-    //            UserDefaultsManager.correctAnswers += correctAnswers
-    //            UserDefaultsManager.incorrectAnswers += incorrectAnswers
-    //            UserDefaultsManager.score += (self.correctAnswers * QuestionsAppOptions.correctAnswerPoints) + (self.incorrectAnswers * QuestionsAppOptions.incorrectAnswerPoints)
-    //        }
-    //
-    //        let topicName = SetOfTopics.shared.currentTopics[self.currentTopicIndex].displayedName
-    //        DataStoreArchiver.shared.completedSets[topicName]?[self.currentSetIndex] = true
-    //        guard DataStoreArchiver.shared.save() else { print("Error saving settings"); return }
+        private func saveScore() {
+    
+            if self.isSetCompleted() {
+                UserDefaultsManager.correctAnswers += correctAnswers
+                UserDefaultsManager.incorrectAnswers += incorrectAnswers
+                UserDefaultsManager.score += (self.correctAnswers * Constants.correctAnswerPoints) + (self.incorrectAnswers * Constants.incorrectAnswerPoints)
+            }
+          
+    }
     
     
-    //    private func okActionDetailed() {
-    //        if !self.isSetFromJSON {
-    //            self.performSegue(withIdentifier: "unwindToQuizSelector", sender: self)
-    //        } else {
-    //            self.performSegue(withIdentifier: "unwindToMainMenu", sender: self)
-    //        }
-    //    }
+//        private func okActionDetailed() {
+//            if !self.isSetFromJSON {
+//                self.performSegue(withIdentifier: "unwindToQuizSelector", sender: self)
+//            } else {
+//                self.performSegue(withIdentifier: "unwindToMainMenu", sender: self)
+//            }
+//        }
     // MARK: TODO
     private func repeatActionDetailed() {
         self.repeatTimes += 1
-        self.correctAnswers = 0
-        self.incorrectAnswers = 0
+//        self.correctAnswers = 0
+//        self.incorrectAnswers = 0
         // self.updateTimer()
         self.setUpQuiz()
         // UserDefaultsManager.score = oldScore
@@ -624,6 +622,16 @@ class QuestionViewController: UIViewController {
             ////                    self.repeatActionDetailed()
             //                    self.blurView.isHidden = true
             //                }
+        }else{
+            print("Story completed")
+            let score = (self.correctAnswers * Constants.correctAnswerPoints) + (self.incorrectAnswers * Constants.incorrectAnswerPoints)
+            print("Score: \(score)")
+            let alertVC = PMAlertController(title: "Your Score: \(score)", description:"", image: UIImage(named: "Q9D1 Square"), style: .walkthrough)
+                   
+                   alertVC.addAction(PMAlertAction(title: "OK", style: .default, action: { ()
+                    self.dismiss(animated: true, completion: nil)
+                   }))
+            self.present(alertVC, animated: true, completion: nil)
         }
         
         //            if QuestionsAppOptions.privacyFeaturesEnabled {
