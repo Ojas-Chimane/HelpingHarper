@@ -11,7 +11,7 @@ import Foundation
 class Scenario: Codable{
     var scenario_id: Int
     var scenario_img_URL: String
-
+    
     var scenario_name:String
     
     init(scenario_id:Int,scenario_img_URL: String,scenario_name:String){

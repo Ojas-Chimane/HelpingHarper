@@ -12,29 +12,5 @@ import Alamofire
 
 class NetworkingClient{
     
-    typealias WebServiceResponse = ([[String:Any]]?, Error?) -> Void
-    
-    func executeWithURL(_ url: URL, completion: @escaping WebServiceResponse){
-        
-//        
-//        AF.request(url,
-//                   method: .get,
-//                   encoder: JSONParameterEncoder.default).response { response in
-//            debugPrint(response)
-//        }
-
-
-//
-//
-//
-   }
-    
-    
-    
-    
-    
-    
-    
-    
     
 }

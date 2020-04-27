@@ -10,16 +10,16 @@ import Foundation
 
 struct Constants{
     
+    // Points used in game
     static let correctAnswerPoints: Int = 10
     static let incorrectAnswerPoints: Int = -5
+    
     //Production Base URL
-   // static let baseURL = "http://helpingharper.games"
+    static let baseURL = "http://helpingharper.games"
     
     // Local Base URL
-    static let baseURL = "http://localhost:8080"
+    //static let baseURL = "http://localhost:8080"
     
-    
-    //API
     
     
     

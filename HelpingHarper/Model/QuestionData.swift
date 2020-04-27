@@ -11,9 +11,6 @@ import Foundation
 class QuestionData: Codable {
     let question_id:Int
     let question: String
-    //let answers: [String]
-    //var correctAnswers: Set<UInt8>! = []
-    //let correct: UInt8?
     let img_URL: String?
     let answerList : [Answer]
     let questionSetupList : [QuestionSetup]

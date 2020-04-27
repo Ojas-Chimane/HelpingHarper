@@ -28,6 +28,9 @@
 		26C0B1772442E2F000EC1471 /* ToastAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C0B1752442E2F000EC1471 /* ToastAlert.swift */; };
 		26C0B17A2442E3BD00EC1471 /* ScenarioVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C0B1792442E3BD00EC1471 /* ScenarioVC.swift */; };
 		26C0B17C2442E3D500EC1471 /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C0B17B2442E3D500EC1471 /* StoryViewController.swift */; };
+		26CF27C624566F230081E907 /* SymbolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CF27C524566F230081E907 /* SymbolViewController.swift */; };
+		26CF27C824566FBE0081E907 /* SymbolTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CF27C724566FBE0081E907 /* SymbolTableViewCell.swift */; };
+		26CF27CA245672590081E907 /* Symbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CF27C9245672590081E907 /* Symbol.swift */; };
 		26E0AEDB243E8BEE006E9A08 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E0AEDA243E8BEE006E9A08 /* AppDelegate.swift */; };
 		26E0AEDD243E8BEE006E9A08 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E0AEDC243E8BEE006E9A08 /* SceneDelegate.swift */; };
 		26E0AEDF243E8BEE006E9A08 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E0AEDE243E8BEE006E9A08 /* MainViewController.swift */; };
@@ -83,6 +86,9 @@
 		26C0B1752442E2F000EC1471 /* ToastAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToastAlert.swift; sourceTree = "<group>"; };
 		26C0B1792442E3BD00EC1471 /* ScenarioVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioVC.swift; sourceTree = "<group>"; };
 		26C0B17B2442E3D500EC1471 /* StoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
+		26CF27C524566F230081E907 /* SymbolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolViewController.swift; sourceTree = "<group>"; };
+		26CF27C724566FBE0081E907 /* SymbolTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolTableViewCell.swift; sourceTree = "<group>"; };
+		26CF27C9245672590081E907 /* Symbol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Symbol.swift; sourceTree = "<group>"; };
 		26E0AED7243E8BEE006E9A08 /* Helping Harper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Helping Harper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		26E0AEDA243E8BEE006E9A08 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		26E0AEDC243E8BEE006E9A08 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -179,6 +185,7 @@
 		26C0B16E2442D89C00EC1471 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				26CF27C9245672590081E907 /* Symbol.swift */,
 				26C0B16F2442D8F900EC1471 /* Question.swift */,
 				26C0B1712442D94100EC1471 /* Topic.swift */,
 				26164F0F2447226200BE32FB /* Scenario.swift */,
@@ -206,6 +213,7 @@
 			children = (
 				26E0AEDE243E8BEE006E9A08 /* MainViewController.swift */,
 				26C0B1792442E3BD00EC1471 /* ScenarioVC.swift */,
+				26CF27C524566F230081E907 /* SymbolViewController.swift */,
 				265D9D972450535F00F9766F /* SetupScreenViewController.swift */,
 				26C0B17B2442E3D500EC1471 /* StoryViewController.swift */,
 				26FE14712443420E0008BA1E /* QuestionViewController.swift */,
@@ -279,6 +287,7 @@
 			children = (
 				26FE146D2442FC800008BA1E /* ScenarioTableViewCell.swift */,
 				26FE146F24433EFC0008BA1E /* StoryTableViewCell.swift */,
+				26CF27C724566FBE0081E907 /* SymbolTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -546,6 +555,7 @@
 				265D9D982450535F00F9766F /* SetupScreenViewController.swift in Sources */,
 				266478D6244D477200295619 /* UserDefaultsManager.swift in Sources */,
 				26164F102447226200BE32FB /* Scenario.swift in Sources */,
+				26CF27CA245672590081E907 /* Symbol.swift in Sources */,
 				2638CED32448559600FD2CCD /* Answer.swift in Sources */,
 				265D9D9A2450558B00F9766F /* OnboardingView.swift in Sources */,
 				26164F0C2446C37E00BE32FB /* Constants.swift in Sources */,
@@ -554,6 +564,7 @@
 				26164F0E2446C4E900BE32FB /* NetworkingClient.swift in Sources */,
 				26FE14722443420E0008BA1E /* QuestionViewController.swift in Sources */,
 				26E0AEDF243E8BEE006E9A08 /* MainViewController.swift in Sources */,
+				26CF27C824566FBE0081E907 /* SymbolTableViewCell.swift in Sources */,
 				266478DA244D78EF00295619 /* FeedbackGenerator.swift in Sources */,
 				26FE146E2442FC800008BA1E /* ScenarioTableViewCell.swift in Sources */,
 				26E0AEDB243E8BEE006E9A08 /* AppDelegate.swift in Sources */,
@@ -561,6 +572,7 @@
 				26E0AEDD243E8BEE006E9A08 /* SceneDelegate.swift in Sources */,
 				26C0B1772442E2F000EC1471 /* ToastAlert.swift in Sources */,
 				26E0AEE5243E8BEE006E9A08 /* HelpingHarper.xcdatamodeld in Sources */,
+				26CF27C624566F230081E907 /* SymbolViewController.swift in Sources */,
 				2638CECF244841BB00FD2CCD /* Story.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

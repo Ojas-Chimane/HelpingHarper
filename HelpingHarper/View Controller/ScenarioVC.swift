@@ -40,7 +40,6 @@ class ScenarioVC: UIViewController {
             case .success:
                 if let data = response.data {
                     print(data)
-                    // Convert This in JSON
                     do {
                         let responseDecoded = try JSONDecoder().decode(Array<Scenario>.self, from: data)
                         print("Scenario ", responseDecoded[0].scenario_name)
@@ -69,7 +68,6 @@ class ScenarioVC: UIViewController {
         
     }
     
-    
 }
 
 extension ScenarioVC: UITableViewDelegate, UITableViewDataSource{
@@ -82,28 +80,6 @@ extension ScenarioVC: UITableViewDelegate, UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "SCENARIO_CELL_IDENTIFIER", for: indexPath) as! ScenarioTableViewCell
         
         cell.scenarioNameLabel.text = self.scenarioList[indexPath.row].scenario_name
-        // TODO - Add image after api call
-       // cell.scenarioImageView.image = nil
-        
-//        AF.request(scenarioList[indexPath.row].scenario_img_URL).responseImage { response in
-//            debugPrint(response)
-//
-////            print(response.request)
-////            print(response.response)
-//            debugPrint(response.result)
-//
-//            if case .success(let image) = response.result {
-//                if let cellToUpdate = tableView.cellForRow(at: indexPath) {
-//                    print("image downloaded: \(image)")
-//                    cell.scenarioImageView.image = image
-//                    cellToUpdate.setNeedsLayout()
-//
-//                }
- 
-                
-       //     }
-    //    }
-        
         
         return cell
     } 

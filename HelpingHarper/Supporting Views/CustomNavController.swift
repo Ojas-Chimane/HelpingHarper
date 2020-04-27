@@ -13,10 +13,8 @@ class CustomNavController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Setup to make the navigation bar transparent
         self.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationBar.shadowImage = UIImage()
     }
-    
-
-
 }
