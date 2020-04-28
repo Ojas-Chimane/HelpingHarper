@@ -286,7 +286,6 @@ class QuestionViewController: UIViewController {
             }))
             self.present(alertVC, animated: true, completion: nil)
         }
-        
     }
     
     // Retrive data from the server using promises api.
