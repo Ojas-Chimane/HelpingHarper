@@ -26,6 +26,14 @@ class StoryViewController: UIViewController {
         print("Story scenarioId:\(scenarioId)")
     }
     
+    //MARK: - Navigation
+      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+          if let vc = segue.destination as? QuestionViewController, let detailToSend = sender as? Int {
+              vc.selectedStoryId = detailToSend
+          }
+          
+      }
+    
     private func setupStoryData() {
         
         print("setupStoryData")

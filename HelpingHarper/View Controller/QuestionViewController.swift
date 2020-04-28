@@ -19,7 +19,6 @@ import PMAlertController
 class QuestionViewController: UIViewController {
     
     // MARK: Properties
-    
     @IBOutlet weak var answerStub: RoundedButton!
     @IBOutlet weak var remainingQuestionsLabel: UILabel!
     @IBOutlet weak var questionLabel: UILabel!
@@ -27,15 +26,16 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet weak var answersStackView: UIStackView!
     
-  
+    // Variables
     var correctAnswerFromSet = Int()
     var correctAnswers = Int()
     var incorrectAnswers = Int()
     var repeatTimes = UInt8()
     var currentTopicIndex = Int()
     var currentSetIndex = Int()
-    
+    var selectedStoryId:Int = 0
 
+    // Arrays
     var questionList = [Question]()
     var questionSetupList = [QuestionSetup]()
     var answerList = [Answer]()
@@ -50,9 +50,6 @@ class QuestionViewController: UIViewController {
     // MARK: View life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Start the loading indicator
-       // activityIndicatorView.startAnimating()
         
         // Retrieve the question data from the server
         setupQuestions()
@@ -77,12 +74,12 @@ class QuestionViewController: UIViewController {
     
     
     @IBAction func onPauseButtonTapped(_ sender: Any) {
-        let alertVC = PMAlertController(title: "Game Paused", description:"", image: nil, style: .alert)
+        let alertVC = PMAlertController(title: "Game Paused😴", description:"", image: nil, style: .alert)
         
-        alertVC.addAction(PMAlertAction(title: "Quit Level", style: .default, action: { ()
+        alertVC.addAction(PMAlertAction(title: "Quit Story👋", style: .default, action: { ()
             self.dismiss(animated: true, completion: nil)
         }))
-        alertVC.addAction(PMAlertAction(title: "Resume", style: .default, action: { ()
+        alertVC.addAction(PMAlertAction(title: "Resume✊", style: .default, action: { ()
             
         }))
         self.present(alertVC, animated: true, completion: nil)
@@ -91,7 +88,8 @@ class QuestionViewController: UIViewController {
     @objc func verifyButton(_ sender: RoundedButton) {
         self.verify(answer: UInt8(sender.tag))
     }
-        
+     
+    // Create answer buttons
     private func createAnswerButtons() {
         
         self.answerStub.isHidden = true
@@ -112,7 +110,7 @@ class QuestionViewController: UIViewController {
             
             button.tag = set.first?.answerList[i].ans_id ?? i
             button.addTarget(self, action: #selector(self.verifyButton), for: .touchDown)
-            button.titleLabel?.font = UIFont(name: "Chalkduster", size: 16)!
+            button.titleLabel?.font = UIFont(name: "Chalkduster", size: 18)!
             button.tintColor = .black
             self.answerButtons.append(button)
             self.answersStackView.addArrangedSubview(button)
@@ -121,7 +119,7 @@ class QuestionViewController: UIViewController {
     
     
     @objc func loadCurrentTheme() {
-//
+
         if #available(iOS 13, *) {
 
             self.questionLabel.textColor = .black
@@ -133,18 +131,13 @@ class QuestionViewController: UIViewController {
             return
         }
         
-       // let currentThemeColor = UIColor.themeStyle(dark: .white, light: .black)
-        
-//        if #available(iOS 13, *) {
-//            self.activityIndicatorView.style = .medium
-//        }
         self.remainingQuestionsLabel.textColor = .black
         self.questionLabel.textColor = .black
         self.answerButtons.forEach { $0.backgroundColor = .themeStyle(dark: .coolBlue, light: .defaultTintColor) }
         
     }
     
-    
+    // Pick a question for each screen
     public func pickQuestion() {
         
         // Restore
@@ -216,7 +209,7 @@ class QuestionViewController: UIViewController {
         self.pickQuestion()
     }
     
-    
+    // Verify the correct answer
     @objc private func verify(answer: UInt8) {
         let isCorrectAnswer: Bool
         if correctAnswerFromSet == answer{
@@ -286,7 +279,7 @@ class QuestionViewController: UIViewController {
             print("Story completed")
             let score = (self.correctAnswers * Constants.correctAnswerPoints) + (self.incorrectAnswers * Constants.incorrectAnswerPoints)
             print("Score: \(score)")
-            let alertVC = PMAlertController(title: "Your Score: \(score)", description:"", image: UIImage(named: "Q9D1 Square"), style: .walkthrough)
+            let alertVC = PMAlertController(title: "Your Score: \(score)", description:"Hooray!🎉🎉🎉 Although it has been a long day, Harper and her family left the beach safely. 🏠🎉🎉😃", image: UIImage(named: "Q9D1 Square"), style: .walkthrough)
             
             alertVC.addAction(PMAlertAction(title: "OK", style: .default, action: { ()
                 self.dismiss(animated: true, completion: nil)
@@ -296,7 +289,7 @@ class QuestionViewController: UIViewController {
         
     }
     
-    
+    // Retrive data from the server using promises api.
     private func setupQuestions(){
         
         retrieveQuestionData { (question) in
@@ -329,16 +322,14 @@ class QuestionViewController: UIViewController {
         self.questionDataList.append(questionData)
         if self.questionDataList.count == 10{
             print("Data Insertion complete")
-            // Stop the loading indicator once the data is ready to be used
-            //activityIndicatorView.stopAnimating()
             self.setUpQuiz()
         }
     }
     
+    // MARK: API Calls
     private func retrieveQuestionData(completion: @escaping (Question?)->()) {
-        // MARK: TODO - Add dynamic variable for Story ID
         print(" ### getQuestionByStoryId ###")
-        guard let urlToExecute  = URL(string: Constants.baseURL+"/getQuestionByStoryId/\(1)") else {
+        guard let urlToExecute  = URL(string: Constants.baseURL+"/getQuestionByStoryId/\(selectedStoryId)") else {
             return
         }
         

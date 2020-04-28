@@ -40,7 +40,10 @@ class MainViewController: UIViewController {
         
         let itemOne = OnboardingItemInfo(informationImage: UIImage(named: "Helping Harper") ?? UIImage(), title: "", description: "Hi! 👋🏻 I'm Harper. I like playing in the water. 🏄‍♀️🏊‍♀️🤽‍♀️🚣‍♀️Come help me make good decisions around water so we can have fun! 🌊😄", pageIcon: UIImage(), color: backgroundColorOne, titleColor: backgroundColorTwo, descriptionColor: backgroundColorTwo, titleFont: titleFont, descriptionFont: titleFont)
         
+        let itemTwo = OnboardingItemInfo(informationImage: UIImage(named: "SHARKS") ?? UIImage(), title: "", description: "Check out the \"Revision\" section to find out more about safety symbols! ⛔🚸🚷⚠️", pageIcon: UIImage(), color: backgroundColorOne, titleColor: backgroundColorTwo, descriptionColor: backgroundColorTwo, titleFont: titleFont, descriptionFont: titleFont)
+        
         self.setupScreenList.append(itemOne)
+        self.setupScreenList.append(itemTwo)
         defaults.set(true, forKey: "isOnBoardComplete")
         invokeSetupScreen()
     }
