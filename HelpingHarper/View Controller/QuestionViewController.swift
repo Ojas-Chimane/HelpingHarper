@@ -74,9 +74,9 @@ class QuestionViewController: UIViewController {
     
     
     @IBAction func onPauseButtonTapped(_ sender: Any) {
-        let alertVC = PMAlertController(title: "Game Paused😴", description:"", image: nil, style: .alert)
+        let alertVC = PMAlertController(title: "", description:"", image: nil, style: .alert)
         
-        alertVC.addAction(PMAlertAction(title: "Quit Story👋", style: .default, action: { ()
+        alertVC.addAction(PMAlertAction(title: "Quit Story👋😴", style: .default, action: { ()
             self.dismiss(animated: true, completion: nil)
         }))
         alertVC.addAction(PMAlertAction(title: "Resume✊", style: .default, action: { ()
