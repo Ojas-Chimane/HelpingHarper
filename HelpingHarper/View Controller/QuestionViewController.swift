@@ -15,6 +15,7 @@ import AlamofireImage
 import paper_onboarding
 import PromiseKit
 import PMAlertController
+import SwiftySound
 
 class QuestionViewController: UIViewController {
     
@@ -34,9 +35,11 @@ class QuestionViewController: UIViewController {
     var currentTopicIndex = Int()
     var currentSetIndex = Int()
     var selectedStoryId:Int = 0
+    var currentQuestionAudio:String?
 
     // Arrays
     var questionList = [Question]()
+    var audioList = [String]()
     var questionSetupList = [QuestionSetup]()
     var answerList = [Answer]()
     var correctIncorrectAnswerList = [Answer]()
@@ -61,13 +64,19 @@ class QuestionViewController: UIViewController {
         self.questionImageButton.clipsToBounds = true
         self.questionImageButton.layer.cornerRadius = 10
     }
+    
+
         
     private func invokeSetupScreen(){
         if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SETUP_SCREEN_IDENTIFIER") as? SetupScreenViewController
         {
             vc.modalPresentationStyle = .fullScreen
-            
+            vc.audioList = self.audioList
             vc.onBoardList = self.setupScreenList
+            vc.callback = {
+                print("## Setup DONE ##")
+                self.playSetupAudioClip(withfileName: self.currentQuestionAudio!+".wav")
+            }
             present(vc, animated: true, completion: nil)
         }
     }
@@ -149,7 +158,7 @@ class QuestionViewController: UIViewController {
         if let quiz0 = self.quiz.next() {
             self.correctIncorrectAnswerList.removeAll()
             self.setupScreenList.removeAll()
-            
+            self.audioList.removeAll()
             
             for setup in quiz0.element.questionSetupList{
                 
@@ -159,12 +168,13 @@ class QuestionViewController: UIViewController {
                 
                 let itemOne = OnboardingItemInfo(informationImage: UIImage(named: setup.setup_img_URL.trimmingCharacters(in: .whitespacesAndNewlines)) ?? UIImage(), title: "", description: setup.setup_desc, pageIcon: UIImage(), color: backgroundColorOne, titleColor: backgroundColorTwo, descriptionColor: backgroundColorTwo, titleFont: titleFont, descriptionFont: titleFont)
                 self.setupScreenList.append(itemOne)
-                
+                self.audioList.append(setup.setup_img_URL)
             }
             self.invokeSetupScreen()
             
             
             let fullQuestion = quiz0.element
+            self.currentQuestionAudio = fullQuestion.img_URL
             self.correctIncorrectAnswerList = fullQuestion.answerList
             
             for answer in fullQuestion.answerList{
@@ -270,6 +280,11 @@ class QuestionViewController: UIViewController {
         pickQuestion()
         loadCurrentTheme()
     }
+    
+    private func playSetupAudioClip(withfileName: String){
+           Sound.stopAll()
+           Sound.play(file: withfileName)
+       }
     
     private func endOfQuestionsAlert() {
         

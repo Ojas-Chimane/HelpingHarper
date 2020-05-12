@@ -8,7 +8,7 @@
 
 import UIKit
 import paper_onboarding
-
+import SwiftySound
 
 class SetupScreenViewController: UIViewController,PaperOnboardingDataSource,PaperOnboardingDelegate {
     
@@ -17,7 +17,8 @@ class SetupScreenViewController: UIViewController,PaperOnboardingDataSource,Pape
     
     var itemOne: OnboardingItemInfo?
     var onBoardList = [OnboardingItemInfo?]()
-    
+    var audioList = [String]()
+    var callback : (()->())?
     
     func onboardingItemsCount() -> Int {
         return onBoardList.count
@@ -28,8 +29,9 @@ class SetupScreenViewController: UIViewController,PaperOnboardingDataSource,Pape
     }
     
     @IBAction func onSetupScreenDismissBtnTapped(_ sender: Any) {
+        Sound.stopAll()
         self.dismiss(animated: true, completion: nil)
-        
+        callback?()
     }
     
     override func viewDidLoad() {
@@ -42,6 +44,8 @@ class SetupScreenViewController: UIViewController,PaperOnboardingDataSource,Pape
                 self.dismissSetupScreenButton.alpha = 1
             })
         }
+        
+        playSetupAudioClip(withfileName: (audioList[0]+".wav"))
     }
     
     
@@ -63,6 +67,41 @@ class SetupScreenViewController: UIViewController,PaperOnboardingDataSource,Pape
                 self.dismissSetupScreenButton.alpha = 0
             })
         }
+        
+        if index == 0{
+            if onBoardList.indices.contains(0){
+                
+                print("Audio 1")
+                playSetupAudioClip(withfileName: (audioList[0]+".wav"))
+            }
+        }
+        
+        if index == 1{
+        if onBoardList.indices.contains(1){
+           
+                print("Audio 2")
+                playSetupAudioClip(withfileName: (audioList[1]+".wav"))
+            }
+        }
+        
+        
+        if index == 2{
+        if onBoardList.indices.contains(2){
+           
+                print("Audio 3")
+               playSetupAudioClip(withfileName: (audioList[2]+".wav"))
+            }
+        }
+        
+        if index == 3{
+               if onBoardList.indices.contains(3){
+                  
+                       print("Audio 4")
+                      playSetupAudioClip(withfileName: (audioList[3]+".wav"))
+                   }
+               }
+        
+        
     }
     
     func onboardingConfigurationItem(_ item: OnboardingContentViewItem, index _: Int) {
@@ -72,6 +111,12 @@ class SetupScreenViewController: UIViewController,PaperOnboardingDataSource,Pape
             item.setNeedsUpdateConstraints()
         }
     }
+    
+    private func playSetupAudioClip(withfileName: String){
+        Sound.stopAll()
+        Sound.play(file: withfileName)
+    }
+    
     
     
 }

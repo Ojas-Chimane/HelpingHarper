@@ -8,6 +8,7 @@
 
 import UIKit
 import paper_onboarding
+import SwiftySound
 
 class MainViewController: UIViewController {
     let defaults = UserDefaults.standard
@@ -22,6 +23,8 @@ class MainViewController: UIViewController {
         hhHomePageImageView?.clipsToBounds = true
         hhHomePageImageView?.layer.borderWidth = 3.0
         hhHomePageImageView?.layer.borderColor = UIColor.white.cgColor
+        
+       // playIntroSound()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -56,6 +59,10 @@ class MainViewController: UIViewController {
             vc.onBoardList = self.setupScreenList
             present(vc, animated: true, completion: nil)
         }
+    }
+    
+    private func playIntroSound(){
+        Sound.play(file: "harper_audio_test.wav")
     }
 
 }
