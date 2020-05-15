@@ -18,13 +18,14 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Setup image view on home screen
         hhHomePageImageView?.layer.cornerRadius = (hhHomePageImageView?.frame.size.width ?? 0.0) / 2
         hhHomePageImageView?.clipsToBounds = true
         hhHomePageImageView?.layer.borderWidth = 3.0
         hhHomePageImageView?.layer.borderColor = UIColor.white.cgColor
         
-       // playIntroSound()
+       initializeBackgroundSound()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -61,8 +62,8 @@ class MainViewController: UIViewController {
         }
     }
     
-    private func playIntroSound(){
-        Sound.play(file: "harper_audio_test.wav")
+   private func initializeBackgroundSound() {
+            AudioSounds.bgMusic?.play()
     }
 
 }
