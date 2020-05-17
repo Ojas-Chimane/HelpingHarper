@@ -18,7 +18,8 @@ class SetupScreenViewController: UIViewController,PaperOnboardingDataSource,Pape
     var itemOne: OnboardingItemInfo?
     var onBoardList = [OnboardingItemInfo?]()
     var audioList = [String]()
-    var callback : (()->())?
+    var callback : ((Bool)->())?
+    var isGameOver: Bool?
     
     func onboardingItemsCount() -> Int {
         return onBoardList.count
@@ -29,9 +30,14 @@ class SetupScreenViewController: UIViewController,PaperOnboardingDataSource,Pape
     }
     
     @IBAction func onSetupScreenDismissBtnTapped(_ sender: Any) {
+        if isGameOver == false{
         Sound.stopAll()
         self.dismiss(animated: true, completion: nil)
-        callback?()
+            callback?(false)
+        }else{
+        self.dismiss(animated: true, completion: nil)
+            callback?(true)
+        }
     }
     
     override func viewDidLoad() {
@@ -45,7 +51,10 @@ class SetupScreenViewController: UIViewController,PaperOnboardingDataSource,Pape
             })
         }
         
-        playSetupAudioClip(withfileName: (audioList[0]+".wav"))
+        if isGameOver == false{
+            playSetupAudioClip(withfileName: (audioList[0]+".wav"))
+            
+        }
     }
     
     
@@ -70,35 +79,58 @@ class SetupScreenViewController: UIViewController,PaperOnboardingDataSource,Pape
         
         if index == 0{
             if onBoardList.indices.contains(0){
-                
+                if audioList.indices.contains(0){
                 print("Audio 1")
                 playSetupAudioClip(withfileName: (audioList[0]+".wav"))
+                }
+                
             }
         }
         
         if index == 1{
         if onBoardList.indices.contains(1){
-           
+            if audioList.indices.contains(1){
                 print("Audio 2")
                 playSetupAudioClip(withfileName: (audioList[1]+".wav"))
-            }
+            }}
         }
         
         
         if index == 2{
         if onBoardList.indices.contains(2){
-           
+            if audioList.indices.contains(2){
                 print("Audio 3")
                playSetupAudioClip(withfileName: (audioList[2]+".wav"))
-            }
+            }}
         }
         
         if index == 3{
                if onBoardList.indices.contains(3){
-                  
+                  if audioList.indices.contains(3){
                        print("Audio 4")
                       playSetupAudioClip(withfileName: (audioList[3]+".wav"))
-                   }
+                }}
+               }
+        if index == 4{
+        if onBoardList.indices.contains(4){
+            if audioList.indices.contains(4){
+                print("Audio 5")
+               playSetupAudioClip(withfileName: (audioList[4]+".wav"))
+            }}
+        }
+        if index == 5{
+        if onBoardList.indices.contains(5){
+            if audioList.indices.contains(5){
+                print("Audio 6")
+               playSetupAudioClip(withfileName: (audioList[5]+".wav"))
+            }}
+        }
+        if index == 6{
+               if onBoardList.indices.contains(6){
+                  if audioList.indices.contains(6){
+                       print("Audio 7")
+                      playSetupAudioClip(withfileName: (audioList[6]+".wav"))
+                }}
                }
         
         
@@ -108,6 +140,7 @@ class SetupScreenViewController: UIViewController,PaperOnboardingDataSource,Pape
         if let imageSize = item.imageView?.image?.size {
             item.informationImageWidthConstraint?.constant = 350
             item.informationImageHeightConstraint?.constant = 350
+            item.descriptionLabel?.adjustsFontSizeToFitWidth = true
             item.setNeedsUpdateConstraints()
         }
     }

@@ -49,6 +49,9 @@ class QuestionViewController: UIViewController {
     var answerButtons: [RoundedButton] = []
     var setupScreenList = [OnboardingItemInfo?]()
     
+    // Setup screen background color
+    let backgroundColorOne = UIColor(red: 236/255, green: 210/255, blue: 175/255, alpha: 1)
+    let backgroundColorTwo = UIColor(red: 37/255, green: 37/255, blue: 42/255, alpha: 1)
     
     // MARK: View life cycle
     override func viewDidLoad() {
@@ -67,15 +70,22 @@ class QuestionViewController: UIViewController {
     
 
         
-    private func invokeSetupScreen(){
+    private func invokeSetupScreen(isGameOver:Bool){
         if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SETUP_SCREEN_IDENTIFIER") as? SetupScreenViewController
         {
             vc.modalPresentationStyle = .fullScreen
             vc.audioList = self.audioList
             vc.onBoardList = self.setupScreenList
-            vc.callback = {
+            vc.isGameOver = isGameOver
+         
+            vc.callback = { (result) -> () in
                 print("## Setup DONE ##")
-                self.playSetupAudioClip(withfileName: self.currentQuestionAudio!+".wav")
+                if result == true{
+                   self.dismiss(animated: true, completion: nil)
+                    print("## Game Over ##")
+                }else{
+                    self.playSetupAudioClip(withfileName: self.currentQuestionAudio!+".wav")
+                }
             }
             present(vc, animated: true, completion: nil)
         }
@@ -161,16 +171,13 @@ class QuestionViewController: UIViewController {
             self.audioList.removeAll()
             
             for setup in quiz0.element.questionSetupList{
-                
-                let backgroundColorOne = UIColor(red: 236/255, green: 210/255, blue: 175/255, alpha: 1)
-                let backgroundColorTwo = UIColor(red: 37/255, green: 37/255, blue: 42/255, alpha: 1)
                 let titleFont = UIFont(name: "Chalkduster", size: 22)!
                 
                 let itemOne = OnboardingItemInfo(informationImage: UIImage(named: setup.setup_img_URL.trimmingCharacters(in: .whitespacesAndNewlines)) ?? UIImage(), title: "", description: setup.setup_desc, pageIcon: UIImage(), color: backgroundColorOne, titleColor: backgroundColorTwo, descriptionColor: backgroundColorTwo, titleFont: titleFont, descriptionFont: titleFont)
                 self.setupScreenList.append(itemOne)
                 self.audioList.append(setup.setup_img_URL)
             }
-            self.invokeSetupScreen()
+            self.invokeSetupScreen(isGameOver: false)
             
             
             let fullQuestion = quiz0.element
@@ -286,7 +293,41 @@ class QuestionViewController: UIViewController {
            Sound.play(file: withfileName)
        }
     
+    fileprivate func setupGameOverScreens(_ score: Int, _ titleFont: UIFont) {
+       
+        self.setupScreenList.removeAll()
+        self.audioList.removeAll()
+        
+        if selectedStoryId == 1{
+            let item = OnboardingItemInfo(informationImage: UIImage(named: "Q9D1 Square") ?? UIImage(), title: "Your Score: \(score)", description: "Hooray!🎉🎉🎉 Although it has been a long day, Harper and her family left the beach safely. 🏠🎉🎉😃", pageIcon: UIImage(), color: backgroundColorOne, titleColor: backgroundColorTwo, descriptionColor: backgroundColorTwo, titleFont: titleFont, descriptionFont: titleFont)
+            self.setupScreenList.append(item)
+            // self.audioList.append(setup.setup_img_URL)
+        }else if selectedStoryId == 2{
+            let itemOne = OnboardingItemInfo(informationImage: UIImage(named: "S2E1") ?? UIImage(), title: "Your Score: \(score)", description: "It turns out the person asking for help was having a cramp in the leg while swimming because he didn’t warm up beforehand. Thankfully the lifeguard brought him back on the shore safely.", pageIcon: UIImage(), color: backgroundColorOne, titleColor: backgroundColorTwo, descriptionColor: backgroundColorTwo, titleFont: titleFont, descriptionFont: titleFont)
+            let itemTwo = OnboardingItemInfo(informationImage: UIImage(named: "S2E2") ?? UIImage(), title: "Your Score: \(score)", description: "It’s getting darker on the island. Harper says goodbye to Yuni and Jimmy, and Pico sends her back home through the purle portal", pageIcon: UIImage(), color: backgroundColorOne, titleColor: backgroundColorTwo, descriptionColor: backgroundColorTwo, titleFont: titleFont, descriptionFont: titleFont)
+            
+            self.setupScreenList.append(itemOne)
+            self.setupScreenList.append(itemTwo)
+            // self.audioList.append(setup.setup_img_URL)
+            
+        }else if selectedStoryId == 3{
+            let itemOne = OnboardingItemInfo(informationImage: UIImage(named: "Q9D1 Square") ?? UIImage(), title: "Your Score: \(score)", description: "Harper asks for three things: a sand castle that will never break, a storm in a bottle and a piece of marshmellow cloud. 🛕⚡☁️", pageIcon: UIImage(), color: backgroundColorOne, titleColor: backgroundColorTwo, descriptionColor: backgroundColorTwo, titleFont: titleFont, descriptionFont: titleFont)
+            
+            let itemTwo = OnboardingItemInfo(informationImage: UIImage(named: "Q9D1 Square") ?? UIImage(), title: "Your Score: \(score)", description: "After Harper makes her wishes, she can feel the wind gently stroking her and carrying her up from the ground. In the blink of an eye she is in her bedroom again 🛏️", pageIcon: UIImage(), color: backgroundColorOne, titleColor: backgroundColorTwo, descriptionColor: backgroundColorTwo, titleFont: titleFont, descriptionFont: titleFont)
+            
+            let itemThree = OnboardingItemInfo(informationImage: UIImage(named: "Q9D1 Square") ?? UIImage(), title: "Your Score: \(score)", description: "Sweet dreams, Harprer, your wishes will come true when you wake up in the morning 🛌🌌", pageIcon: UIImage(), color: backgroundColorOne, titleColor: backgroundColorTwo, descriptionColor: backgroundColorTwo, titleFont: titleFont, descriptionFont: titleFont)
+            
+            self.setupScreenList.append(itemOne)
+            self.setupScreenList.append(itemTwo)
+            self.setupScreenList.append(itemThree)
+            // self.audioList.append(setup.setup_img_URL)
+        }
+        self.invokeSetupScreen(isGameOver: true)
+    }
+    
     private func endOfQuestionsAlert() {
+       
+        let titleFont = UIFont(name: "Chalkduster", size: 22)!
         
         if ((self.repeatTimes < 2) && !isSetCompleted()) {
             self.repeatActionDetailed()
@@ -294,12 +335,11 @@ class QuestionViewController: UIViewController {
             print("Story completed")
             let score = (self.correctAnswers * Constants.correctAnswerPoints) + (self.incorrectAnswers * Constants.incorrectAnswerPoints)
             print("Score: \(score)")
-            let alertVC = PMAlertController(title: "Your Score: \(score)", description:"Hooray!🎉🎉🎉 Although it has been a long day, Harper and her family left the beach safely. 🏠🎉🎉😃", image: UIImage(named: "Q9D1 Square"), style: .walkthrough)
+            setupGameOverScreens(score, titleFont)
             
-            alertVC.addAction(PMAlertAction(title: "OK", style: .default, action: { ()
-                self.dismiss(animated: true, completion: nil)
-            }))
-            self.present(alertVC, animated: true, completion: nil)
+           
+            
+          //  self.present(alertVC, animated: true, completion: nil)
         }
     }
     

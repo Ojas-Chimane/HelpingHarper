@@ -9,10 +9,10 @@
 import AVFoundation
 
 class AudioSounds {
-    static let bgMusic = AVAudioPlayer(file: "rainy-sun", type: .wav, volume: AudioSounds.defaultBGMusicLevel)?.apply {
+    static let bgMusic = AVAudioPlayer(file: "Loli", type: .mp3, volume: AudioSounds.defaultBGMusicLevel)?.apply {
         $0.numberOfLoops = -1
     }
-    static let defaultBGMusicLevel: Float = 0.12
+    static let defaultBGMusicLevel: Float = 0.02
 }
 
 extension AVAudioPlayer {

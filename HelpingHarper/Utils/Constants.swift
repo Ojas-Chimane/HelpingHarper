@@ -15,10 +15,10 @@ struct Constants{
     static let incorrectAnswerPoints: Int = -5
     
     //Production Base URL
-    static let baseURL = "https://helpingharper.games"
+    //static let baseURL = "https://helpingharper.games"
     
     // Local Base URL
-    //static let baseURL = "http://localhost:8080"
+    static let baseURL = "http://localhost:8080"
     
     
     
