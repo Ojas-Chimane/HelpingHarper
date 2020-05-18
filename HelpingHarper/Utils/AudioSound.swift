@@ -12,7 +12,7 @@ class AudioSounds {
     static let bgMusic = AVAudioPlayer(file: "Loli", type: .mp3, volume: AudioSounds.defaultBGMusicLevel)?.apply {
         $0.numberOfLoops = -1
     }
-    static let defaultBGMusicLevel: Float = 0.02
+    static let defaultBGMusicLevel: Float = 0.01
 }
 
 extension AVAudioPlayer {

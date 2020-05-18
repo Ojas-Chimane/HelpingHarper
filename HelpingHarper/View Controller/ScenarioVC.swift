@@ -80,9 +80,10 @@ extension ScenarioVC: UITableViewDelegate, UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "SCENARIO_CELL_IDENTIFIER", for: indexPath) as! ScenarioTableViewCell
         
         cell.scenarioNameLabel.text = self.scenarioList[indexPath.row].scenario_name
+        cell.scenarioImageView.image = UIImage(named: self.scenarioList[indexPath.row].scenario_img_URL)
         
         return cell
-    } 
+    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Selected ScenarioId: \(scenarioList[indexPath.row].scenario_id)")

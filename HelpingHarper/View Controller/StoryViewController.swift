@@ -80,6 +80,7 @@ extension StoryViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "STORY_CELL_IDENTIFIER", for: indexPath) as! StoryTableViewCell
         cell.storyNameLabel.text = storyList[indexPath.row].story_name
+        cell.storyImageView.image = UIImage(named: self.storyList[indexPath.row].story_img_URL)
         return cell
     }
     

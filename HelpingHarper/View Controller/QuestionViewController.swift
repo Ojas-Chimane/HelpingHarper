@@ -16,6 +16,7 @@ import paper_onboarding
 import PromiseKit
 import PMAlertController
 import SwiftySound
+import Lottie
 
 class QuestionViewController: UIViewController {
     
@@ -26,6 +27,8 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var questionImageButton: UIButton!
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet weak var answersStackView: UIStackView!
+    @IBOutlet weak var loadingView: UIView!
+    let animationView = AnimationView()
     
     // Variables
     var correctAnswerFromSet = Int()
@@ -57,6 +60,8 @@ class QuestionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        startLoadingAnimation()
+        
         // Retrieve the question data from the server
         setupQuestions()
         
@@ -66,6 +71,17 @@ class QuestionViewController: UIViewController {
         self.questionImageButton.imageView?.clipsToBounds = true
         self.questionImageButton.clipsToBounds = true
         self.questionImageButton.layer.cornerRadius = 10
+    }
+    
+    private func startLoadingAnimation(){
+        let animation = Animation.named("loading-unicorn")
+        animationView.animation = animation
+        animationView.contentMode = .scaleAspectFit
+        animationView.frame.size = loadingView.frame.size
+        animationView.loopMode = .loop
+        
+        loadingView.addSubview(animationView)
+        animationView.play()
     }
     
 
@@ -179,6 +195,9 @@ class QuestionViewController: UIViewController {
             }
             self.invokeSetupScreen(isGameOver: false)
             
+            // Hide the loading view
+            self.animationView.stop()
+            self.loadingView.alpha = 0
             
             let fullQuestion = quiz0.element
             self.currentQuestionAudio = fullQuestion.img_URL
@@ -311,16 +330,19 @@ class QuestionViewController: UIViewController {
             // self.audioList.append(setup.setup_img_URL)
             
         }else if selectedStoryId == 3{
-            let itemOne = OnboardingItemInfo(informationImage: UIImage(named: "Q9D1 Square") ?? UIImage(), title: "Your Score: \(score)", description: "Harper asks for three things: a sand castle that will never break, a storm in a bottle and a piece of marshmellow cloud. 🛕⚡☁️", pageIcon: UIImage(), color: backgroundColorOne, titleColor: backgroundColorTwo, descriptionColor: backgroundColorTwo, titleFont: titleFont, descriptionFont: titleFont)
+            let itemOne = OnboardingItemInfo(informationImage: UIImage(named: "S3E1") ?? UIImage(), title: "Your Score: \(score)", description: "Harper asks for three things: a sand castle that will never break, a storm in a bottle and a piece of marshmellow cloud. 🛕⚡☁️", pageIcon: UIImage(), color: backgroundColorOne, titleColor: backgroundColorTwo, descriptionColor: backgroundColorTwo, titleFont: titleFont, descriptionFont: titleFont)
             
-            let itemTwo = OnboardingItemInfo(informationImage: UIImage(named: "Q9D1 Square") ?? UIImage(), title: "Your Score: \(score)", description: "After Harper makes her wishes, she can feel the wind gently stroking her and carrying her up from the ground. In the blink of an eye she is in her bedroom again 🛏️", pageIcon: UIImage(), color: backgroundColorOne, titleColor: backgroundColorTwo, descriptionColor: backgroundColorTwo, titleFont: titleFont, descriptionFont: titleFont)
+            let itemTwo = OnboardingItemInfo(informationImage: UIImage(named: "S3E2") ?? UIImage(), title: "Your Score: \(score)", description: "After Harper makes her wishes, she can feel the wind gently stroking her and carrying her up from the ground. In the blink of an eye she is in her bedroom again 🛏️", pageIcon: UIImage(), color: backgroundColorOne, titleColor: backgroundColorTwo, descriptionColor: backgroundColorTwo, titleFont: titleFont, descriptionFont: titleFont)
             
-            let itemThree = OnboardingItemInfo(informationImage: UIImage(named: "Q9D1 Square") ?? UIImage(), title: "Your Score: \(score)", description: "Sweet dreams, Harprer, your wishes will come true when you wake up in the morning 🛌🌌", pageIcon: UIImage(), color: backgroundColorOne, titleColor: backgroundColorTwo, descriptionColor: backgroundColorTwo, titleFont: titleFont, descriptionFont: titleFont)
+            let itemThree = OnboardingItemInfo(informationImage: UIImage(named: "S3E3") ?? UIImage(), title: "Your Score: \(score)", description: "Sweet dreams, Harper, your wishes will come true when you wake up in the morning 🛌🌌", pageIcon: UIImage(), color: backgroundColorOne, titleColor: backgroundColorTwo, descriptionColor: backgroundColorTwo, titleFont: titleFont, descriptionFont: titleFont)
             
             self.setupScreenList.append(itemOne)
             self.setupScreenList.append(itemTwo)
             self.setupScreenList.append(itemThree)
-            // self.audioList.append(setup.setup_img_URL)
+            
+            self.audioList.append("S3E2")
+            self.audioList.append("S3E3")
+            self.audioList.append("S3E4")
         }
         self.invokeSetupScreen(isGameOver: true)
     }
@@ -362,6 +384,7 @@ class QuestionViewController: UIViewController {
                         print("Question# Answer \(answer[0].answer)")
                         
                         self.insertQuestionIntoList(questionData: QuestionData(question_id: question.question_id, question: question.question, imageURL: question.img_URL, answerList: answer, questionSetupList: questionSetup))
+  
                     }
                 }
                 

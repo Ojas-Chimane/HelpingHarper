@@ -603,16 +603,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JGN-Zh-85o">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Fbt-Do-9P9">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                </view>
-                                <vibrancyEffect>
-                                    <blurEffect style="regular"/>
-                                </vibrancyEffect>
-                            </visualEffectView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="D08-YG-arT" userLabel="all">
                                 <rect key="frame" x="14.5" y="20" width="385" height="768"/>
                                 <subviews>
@@ -806,19 +796,23 @@
                                     </mask>
                                 </variation>
                             </stackView>
+                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="VLd-Pn-F9i">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                                <color key="backgroundColor" red="0.90816897149999998" green="0.82639545199999997" blue="0.70193976160000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.90816897149999998" green="0.82639545199999997" blue="0.70193976160000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="JGN-Zh-85o" secondAttribute="bottom" id="07r-3L-CLz"/>
+                            <constraint firstItem="VLd-Pn-F9i" firstAttribute="leading" secondItem="dZd-HC-T67" secondAttribute="leading" id="AVk-td-mjm"/>
                             <constraint firstItem="D08-YG-arT" firstAttribute="centerY" secondItem="dZd-HC-T67" secondAttribute="centerY" id="JAw-7p-x6J"/>
                             <constraint firstItem="D08-YG-arT" firstAttribute="height" secondItem="dZd-HC-T67" secondAttribute="height" multiplier="0.95" id="UMV-jK-vxy"/>
-                            <constraint firstItem="JGN-Zh-85o" firstAttribute="leading" secondItem="dZd-HC-T67" secondAttribute="leading" id="d7I-tq-TVF"/>
                             <constraint firstItem="D08-YG-arT" firstAttribute="centerX" secondItem="dZd-HC-T67" secondAttribute="centerX" id="hOL-z0-Khz"/>
                             <constraint firstItem="D08-YG-arT" firstAttribute="width" secondItem="dZd-HC-T67" secondAttribute="width" multiplier="0.93" id="iTL-nV-WEL"/>
                             <constraint firstItem="D08-YG-arT" firstAttribute="height" secondItem="dZd-HC-T67" secondAttribute="height" multiplier="0.95" id="jEA-mc-hVe"/>
-                            <constraint firstItem="dZd-HC-T67" firstAttribute="trailing" secondItem="JGN-Zh-85o" secondAttribute="trailing" id="ocL-H8-Rzl"/>
-                            <constraint firstItem="JGN-Zh-85o" firstAttribute="top" secondItem="cWP-gX-JGG" secondAttribute="top" id="xri-eM-XzO"/>
+                            <constraint firstItem="dZd-HC-T67" firstAttribute="trailing" secondItem="VLd-Pn-F9i" secondAttribute="trailing" id="jbs-Rb-q6w"/>
+                            <constraint firstAttribute="bottom" secondItem="VLd-Pn-F9i" secondAttribute="bottom" id="l20-WK-GlS"/>
+                            <constraint firstItem="VLd-Pn-F9i" firstAttribute="top" secondItem="dZd-HC-T67" secondAttribute="top" id="thP-6M-R59"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dZd-HC-T67"/>
                         <variation key="default">
@@ -846,6 +840,7 @@
                     <connections>
                         <outlet property="answerStub" destination="MM3-CG-5MV" id="4dR-jn-pJx"/>
                         <outlet property="answersStackView" destination="90d-zS-hnk" id="I8d-L9-zas"/>
+                        <outlet property="loadingView" destination="VLd-Pn-F9i" id="Z6U-fN-qBU"/>
                         <outlet property="questionImageButton" destination="Cf7-Q9-dWa" id="fDl-44-2I3"/>
                         <outlet property="questionLabel" destination="CRb-4H-nha" id="RZr-tk-Vl1"/>
                         <outlet property="remainingQuestionsLabel" destination="LKe-AP-62W" id="CDM-BC-1ou"/>
