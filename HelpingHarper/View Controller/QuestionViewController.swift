@@ -320,14 +320,15 @@ class QuestionViewController: UIViewController {
         if selectedStoryId == 1{
             let item = OnboardingItemInfo(informationImage: UIImage(named: "Q9D1 Square") ?? UIImage(), title: "Your Score: \(score)", description: "Hooray!🎉🎉🎉 Although it has been a long day, Harper and her family left the beach safely. 🏠🎉🎉😃", pageIcon: UIImage(), color: backgroundColorOne, titleColor: backgroundColorTwo, descriptionColor: backgroundColorTwo, titleFont: titleFont, descriptionFont: titleFont)
             self.setupScreenList.append(item)
-            // self.audioList.append(setup.setup_img_URL)
+            self.audioList.append("E1")
         }else if selectedStoryId == 2{
             let itemOne = OnboardingItemInfo(informationImage: UIImage(named: "S2E1") ?? UIImage(), title: "Your Score: \(score)", description: "It turns out the person asking for help was having a cramp in the leg while swimming because he didn’t warm up beforehand. Thankfully the lifeguard brought him back on the shore safely.", pageIcon: UIImage(), color: backgroundColorOne, titleColor: backgroundColorTwo, descriptionColor: backgroundColorTwo, titleFont: titleFont, descriptionFont: titleFont)
             let itemTwo = OnboardingItemInfo(informationImage: UIImage(named: "S2E2") ?? UIImage(), title: "Your Score: \(score)", description: "It’s getting darker on the island. Harper says goodbye to Yuni and Jimmy, and Pico sends her back home through the purle portal", pageIcon: UIImage(), color: backgroundColorOne, titleColor: backgroundColorTwo, descriptionColor: backgroundColorTwo, titleFont: titleFont, descriptionFont: titleFont)
             
             self.setupScreenList.append(itemOne)
             self.setupScreenList.append(itemTwo)
-            // self.audioList.append(setup.setup_img_URL)
+            self.audioList.append("S2E1")
+            self.audioList.append("S2E2")
             
         }else if selectedStoryId == 3{
             let itemOne = OnboardingItemInfo(informationImage: UIImage(named: "S3E1") ?? UIImage(), title: "Your Score: \(score)", description: "Harper asks for three things: a sand castle that will never break, a storm in a bottle and a piece of marshmellow cloud. 🛕⚡☁️", pageIcon: UIImage(), color: backgroundColorOne, titleColor: backgroundColorTwo, descriptionColor: backgroundColorTwo, titleFont: titleFont, descriptionFont: titleFont)

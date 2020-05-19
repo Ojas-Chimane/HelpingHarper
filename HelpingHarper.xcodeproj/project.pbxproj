@@ -151,6 +151,11 @@
 		26F3972D24721E510003D6AC /* S3Q9Q.png in Resources */ = {isa = PBXBuildFile; fileRef = 26F3972C24721E510003D6AC /* S3Q9Q.png */; };
 		26F3972F247241560003D6AC /* loading-unicorn.json in Resources */ = {isa = PBXBuildFile; fileRef = 26F3972E247241550003D6AC /* loading-unicorn.json */; };
 		26F3973124724ACD0003D6AC /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 26F3973024724ACD0003D6AC /* loading.json */; };
+		26F3973324734D710003D6AC /* S2E1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 26F3973224734D700003D6AC /* S2E1.wav */; };
+		26F3973524734D7A0003D6AC /* S2E2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 26F3973424734D790003D6AC /* S2E2.wav */; };
+		26F3973724734DCB0003D6AC /* E1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 26F3973624734DCB0003D6AC /* E1.wav */; };
+		26F39739247350240003D6AC /* S2Q3Q.wav in Resources */ = {isa = PBXBuildFile; fileRef = 26F39738247350230003D6AC /* S2Q3Q.wav */; };
+		26F3973B2473507C0003D6AC /* S2Q6Q.wav in Resources */ = {isa = PBXBuildFile; fileRef = 26F3973A2473507C0003D6AC /* S2Q6Q.wav */; };
 		26F7EC60245FEE0000567FFA /* in-a-dream.wav in Resources */ = {isa = PBXBuildFile; fileRef = 26F7EC5F245FEE0000567FFA /* in-a-dream.wav */; };
 		26F7EC62245FF31C00567FFA /* harper_audio_test.wav in Resources */ = {isa = PBXBuildFile; fileRef = 26F7EC61245FF31C00567FFA /* harper_audio_test.wav */; };
 		26FE146B2442E70B0008BA1E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26E0AEE0243E8BEE006E9A08 /* Main.storyboard */; };
@@ -330,6 +335,11 @@
 		26F3972C24721E510003D6AC /* S3Q9Q.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = S3Q9Q.png; sourceTree = "<group>"; };
 		26F3972E247241550003D6AC /* loading-unicorn.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "loading-unicorn.json"; sourceTree = "<group>"; };
 		26F3973024724ACD0003D6AC /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
+		26F3973224734D700003D6AC /* S2E1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = S2E1.wav; sourceTree = "<group>"; };
+		26F3973424734D790003D6AC /* S2E2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = S2E2.wav; sourceTree = "<group>"; };
+		26F3973624734DCB0003D6AC /* E1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = E1.wav; sourceTree = "<group>"; };
+		26F39738247350230003D6AC /* S2Q3Q.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = S2Q3Q.wav; sourceTree = "<group>"; };
+		26F3973A2473507C0003D6AC /* S2Q6Q.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = S2Q6Q.wav; sourceTree = "<group>"; };
 		26F7EC5F245FEE0000567FFA /* in-a-dream.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "in-a-dream.wav"; sourceTree = "<group>"; };
 		26F7EC61245FF31C00567FFA /* harper_audio_test.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = harper_audio_test.wav; sourceTree = "<group>"; };
 		26FE146D2442FC800008BA1E /* ScenarioTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioTableViewCell.swift; sourceTree = "<group>"; };
@@ -413,14 +423,18 @@
 				26F3973024724ACD0003D6AC /* loading.json */,
 				262FE48C246EC81C00C96DD7 /* rainy-sun.wav */,
 				26F7EC5F245FEE0000567FFA /* in-a-dream.wav */,
+				26F3973624734DCB0003D6AC /* E1.wav */,
 				26F396D424714EDE0003D6AC /* Loli.mp3 */,
 				26F7EC61245FF31C00567FFA /* harper_audio_test.wav */,
+				26F3973224734D700003D6AC /* S2E1.wav */,
+				26F3973424734D790003D6AC /* S2E2.wav */,
 				26B7BFCD246AB0F4009DBDC4 /* Q1D1.wav */,
 				26B7BFE3246AB0FB009DBDC4 /* Q1D2.wav */,
 				26B7BFCE246AB0F4009DBDC4 /* Q1Q.wav */,
 				26B7BFD8246AB0F7009DBDC4 /* Q2D1.wav */,
 				26B7BFCB246AB0F3009DBDC4 /* Q2D2.wav */,
 				26B7BFDB246AB0F8009DBDC4 /* Q2Q.wav */,
+				26F3973A2473507C0003D6AC /* S2Q6Q.wav */,
 				26B7BFE0246AB0FA009DBDC4 /* Q3D1.wav */,
 				26B7BFD6246AB0F6009DBDC4 /* Q3D2.wav */,
 				26B7BFCA246AB0F3009DBDC4 /* Q3Q.wav */,
@@ -430,6 +444,7 @@
 				26B7BFD0246AB0F5009DBDC4 /* Q4Q.wav */,
 				26B7BFD3246AB0F5009DBDC4 /* Q5D1.wav */,
 				26B7BFE8246AB0FD009DBDC4 /* Q5Q.wav */,
+				26F39738247350230003D6AC /* S2Q3Q.wav */,
 				26B7BFDE246AB0F9009DBDC4 /* Q6D1.wav */,
 				26B7BFD7246AB0F7009DBDC4 /* Q6D2.wav */,
 				26B7BFDD246AB0F9009DBDC4 /* Q7D1.wav */,
@@ -762,11 +777,14 @@
 				26B7C004246AB0FD009DBDC4 /* Q9D1.wav in Resources */,
 				26B7BFF3246AB0FD009DBDC4 /* Q8Q.wav in Resources */,
 				26B7BFF6246AB0FD009DBDC4 /* Q6D2.wav in Resources */,
+				26F3973324734D710003D6AC /* S2E1.wav in Resources */,
 				26B7BFED246AB0FD009DBDC4 /* Q1Q.wav in Resources */,
 				26FE146B2442E70B0008BA1E /* Main.storyboard in Resources */,
 				26F396BC2470FE320003D6AC /* S2Q2D4.wav in Resources */,
 				26F3972B247213B70003D6AC /* S3Q1D6.wav in Resources */,
+				26F39739247350240003D6AC /* S2Q3Q.wav in Resources */,
 				26F39702247213B70003D6AC /* S3Q8D2.wav in Resources */,
+				26F3973B2473507C0003D6AC /* S2Q6Q.wav in Resources */,
 				26B7BFFF246AB0FD009DBDC4 /* Q3D1.wav in Resources */,
 				26F396B72470FE320003D6AC /* S2Q2Q.wav in Resources */,
 				26F3970F247213B70003D6AC /* S3Q9D1.wav in Resources */,
@@ -795,6 +813,7 @@
 				26F396B82470FE320003D6AC /* S2Q5D1.wav in Resources */,
 				26B7C006246AB0FD009DBDC4 /* Q9D3.wav in Resources */,
 				26F396C22470FE320003D6AC /* S2Q1D4.wav in Resources */,
+				26F3973524734D7A0003D6AC /* S2E2.wav in Resources */,
 				26F3971A247213B70003D6AC /* S3Q4D1.wav in Resources */,
 				26F3971C247213B70003D6AC /* S3Q1D1.wav in Resources */,
 				26F39723247213B70003D6AC /* S3Q5D2.wav in Resources */,
@@ -845,6 +864,7 @@
 				26F396BA2470FE320003D6AC /* S2Q4D1.wav in Resources */,
 				26F39708247213B70003D6AC /* S3Q10D4.wav in Resources */,
 				26F396BD2470FE320003D6AC /* S2Q7D1.wav in Resources */,
+				26F3973724734DCB0003D6AC /* E1.wav in Resources */,
 				26F396CD2470FE320003D6AC /* S2Q4D2.wav in Resources */,
 				262FE48D246EC81C00C96DD7 /* rainy-sun.wav in Resources */,
 				26F7EC62245FF31C00567FFA /* harper_audio_test.wav in Resources */,

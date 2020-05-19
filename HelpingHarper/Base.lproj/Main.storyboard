@@ -210,7 +210,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="EFW-Wf-DAu"/>
                                 </constraints>
-                                <string key="text">• Drowning is the 3rd leading cause of injury-related life lost worldwide.                                         • Around 320,000 people lose their lives from drowning around the world every year.  • Children and males are most at risk of drowning. </string>
+                                <string key="text">• Drowning is the 3rd leading cause of injury-related life lost worldwide.                                         • Children and males are most at risk of drowning. </string>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
