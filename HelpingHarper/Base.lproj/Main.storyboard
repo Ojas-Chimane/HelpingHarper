@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4yG-gb-zTg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4yG-gb-zTg">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -863,6 +863,34 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IFW-WR-xlf" customClass="RoundedButton" customModule="Helping_Harper" customModuleProvider="target">
+                                <rect key="frame" x="16" y="52" width="100" height="40"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="DA9-Xn-hKa"/>
+                                    <constraint firstAttribute="width" constant="100" id="uPG-Nh-5b2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="18"/>
+                                <state key="normal" title="Exit"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="0.40000000000000002" height="2.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="0.14999999999999999"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onExitButtonTapped:" destination="PpJ-FY-yqE" eventType="touchUpInside" id="QYd-Am-Plm"/>
+                                    <action selector="onPauseButtonTapped:" destination="96E-ji-07T" eventType="touchUpInside" id="W2A-c2-mhb"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xq6-x1-Ugu">
                                 <rect key="frame" x="16" y="742" width="382" height="50"/>
                                 <constraints>
@@ -882,8 +910,10 @@
                             <constraint firstItem="pGL-u1-ZCT" firstAttribute="leading" secondItem="o6b-Sz-Smb" secondAttribute="leading" id="4QB-z2-7Ko"/>
                             <constraint firstItem="o6b-Sz-Smb" firstAttribute="trailing" secondItem="xq6-x1-Ugu" secondAttribute="trailing" constant="16" id="5NG-Vs-b7k"/>
                             <constraint firstItem="xq6-x1-Ugu" firstAttribute="leading" secondItem="o6b-Sz-Smb" secondAttribute="leading" constant="16" id="CSr-7m-SWd"/>
+                            <constraint firstItem="IFW-WR-xlf" firstAttribute="top" secondItem="o6b-Sz-Smb" secondAttribute="top" constant="8" id="Fjw-ro-Kwk"/>
                             <constraint firstItem="o6b-Sz-Smb" firstAttribute="bottom" secondItem="xq6-x1-Ugu" secondAttribute="bottom" constant="70" id="USz-il-3Tk"/>
                             <constraint firstItem="pGL-u1-ZCT" firstAttribute="top" secondItem="4rB-Pt-czZ" secondAttribute="top" id="fmc-xj-x1P"/>
+                            <constraint firstItem="IFW-WR-xlf" firstAttribute="leading" secondItem="o6b-Sz-Smb" secondAttribute="leading" constant="16" id="he5-Ot-oLy"/>
                             <constraint firstItem="pGL-u1-ZCT" firstAttribute="trailing" secondItem="o6b-Sz-Smb" secondAttribute="trailing" id="nHC-6d-s0T"/>
                             <constraint firstAttribute="bottom" secondItem="pGL-u1-ZCT" secondAttribute="bottom" id="yBh-VY-nvO"/>
                         </constraints>
@@ -891,6 +921,7 @@
                     </view>
                     <connections>
                         <outlet property="dismissSetupScreenButton" destination="xq6-x1-Ugu" id="61T-4n-IFo"/>
+                        <outlet property="exitGameButton" destination="IFW-WR-xlf" id="bpo-xd-KfD"/>
                         <outlet property="setupScreenView" destination="pGL-u1-ZCT" id="580-kE-fTM"/>
                     </connections>
                 </viewController>

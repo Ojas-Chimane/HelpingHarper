@@ -60,7 +60,8 @@ class QuestionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        startLoadingAnimation()
+        self.startLoadingAnimation()
+        self.loadingView.alpha = 1
         
         // Retrieve the question data from the server
         setupQuestions()
@@ -101,6 +102,10 @@ class QuestionViewController: UIViewController {
                     print("## Game Over ##")
                 }else{
                     self.playSetupAudioClip(withfileName: self.currentQuestionAudio!+".wav")
+                    
+                    // Hide the loading view
+                    self.animationView.stop()
+                    self.loadingView.alpha = 0
                 }
             }
             present(vc, animated: true, completion: nil)
@@ -109,7 +114,7 @@ class QuestionViewController: UIViewController {
     
     
     @IBAction func onPauseButtonTapped(_ sender: Any) {
-        let alertVC = PMAlertController(title: "", description:"", image: nil, style: .alert)
+        let alertVC = PMAlertController(title: "", description:"", image: UIImage(named: "S2E2"), style: .alert)
         
         alertVC.addAction(PMAlertAction(title: "Quit Story👋😴", style: .default, action: { ()
             self.dismiss(animated: true, completion: nil)
@@ -195,10 +200,6 @@ class QuestionViewController: UIViewController {
             }
             self.invokeSetupScreen(isGameOver: false)
             
-            // Hide the loading view
-            self.animationView.stop()
-            self.loadingView.alpha = 0
-            
             let fullQuestion = quiz0.element
             self.currentQuestionAudio = fullQuestion.img_URL
             self.correctIncorrectAnswerList = fullQuestion.answerList
@@ -225,6 +226,8 @@ class QuestionViewController: UIViewController {
                 self.questionImageButton.alpha = 1.0
                 self.questionImageButton.setImage(UIImage(named: fullQuestion.img_URL?.trimmingCharacters(in: .whitespacesAndNewlines) ?? "beach"), for: .normal)
             })
+            
+            
         }
         else {
             self.endOfQuestionsAlert()
@@ -247,6 +250,8 @@ class QuestionViewController: UIViewController {
     
     // Verify the correct answer
     @objc private func verify(answer: UInt8) {
+        self.startLoadingAnimation()
+        self.loadingView.alpha = 1
         let isCorrectAnswer: Bool
         if correctAnswerFromSet == answer{
             isCorrectAnswer = true
@@ -255,6 +260,7 @@ class QuestionViewController: UIViewController {
         }
         
         if isCorrectAnswer {
+            playCorrectAnswerAudio()
             correctAnswers += 1
             print("## Correct Answer Selected ##")
             for answer in correctIncorrectAnswerList{
@@ -264,6 +270,7 @@ class QuestionViewController: UIViewController {
             }
         }
         else {
+            playInCorrectAnswerAudio()
             incorrectAnswers += 1
             print("## Incorrect Answer Selected ##")
             
@@ -295,6 +302,16 @@ class QuestionViewController: UIViewController {
         
         
         self.present(alertVC, animated: true, completion: nil)
+    }
+    
+    private func playCorrectAnswerAudio(){
+        Sound.stopAll()
+        Sound.play(file: "correct_answer.wav")
+    }
+    
+    private func playInCorrectAnswerAudio(){
+        Sound.stopAll()
+        Sound.play(file: "incorrect_answer.wav")
     }
     
     private func setUpQuiz() {

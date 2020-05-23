@@ -9,12 +9,16 @@
 import UIKit
 import paper_onboarding
 import SwiftySound
+import PMAlertController
 
 class SetupScreenViewController: UIViewController,PaperOnboardingDataSource,PaperOnboardingDelegate {
     
+    @IBOutlet weak var exitGameButton: RoundedButton!
     @IBOutlet weak var dismissSetupScreenButton: UIButton!
     @IBOutlet weak var setupScreenView: OnboardingView!
+    private var presentingController: UIViewController?
     
+    let defaults = UserDefaults.standard
     var itemOne: OnboardingItemInfo?
     var onBoardList = [OnboardingItemInfo?]()
     var audioList = [String]()
@@ -30,6 +34,7 @@ class SetupScreenViewController: UIViewController,PaperOnboardingDataSource,Pape
     }
     
     @IBAction func onSetupScreenDismissBtnTapped(_ sender: Any) {
+        defaults.set(true, forKey: "isOnBoardComplete")
         if isGameOver == false{
         Sound.stopAll()
         self.dismiss(animated: true, completion: nil)
@@ -51,12 +56,37 @@ class SetupScreenViewController: UIViewController,PaperOnboardingDataSource,Pape
             })
         }
         
-        if isGameOver == false{
+         if audioList.indices.contains(0){
             playSetupAudioClip(withfileName: (audioList[0]+".wav"))
-            
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        presentingController = presentingViewController
+        
+        let isOnboarded = defaults.bool(forKey: "isOnBoardComplete")
+        print("isOnboarded \(isOnboarded)")
+               if isOnboarded == true {
+                exitGameButton.alpha = 1
+        }
+    }
+    
+    
+    
+    @IBAction func onExitButtonTapped(_ sender: Any) {
+        let alertVC = PMAlertController(title: "", description:"", image: UIImage(named: "S2E2"), style: .alert)
+        
+        alertVC.addAction(PMAlertAction(title: "Quit Story👋😴", style: .default, action: { ()
+            self.dismiss(animated: false, completion: {
+                    self.presentingController?.dismiss(animated: false)
+               })
+        }))
+        alertVC.addAction(PMAlertAction(title: "Resume✊", style: .default, action: { ()
+            
+        }))
+        self.present(alertVC, animated: true, completion: nil)
+    }
     
     func onboardingWillTransitonToIndex(_ index: Int) {
         if self.dismissSetupScreenButton.alpha == 1 {
@@ -141,8 +171,13 @@ class SetupScreenViewController: UIViewController,PaperOnboardingDataSource,Pape
             item.informationImageWidthConstraint?.constant = 350
             item.informationImageHeightConstraint?.constant = 350
             item.descriptionLabel?.adjustsFontSizeToFitWidth = true
+            
             item.setNeedsUpdateConstraints()
         }
+    }
+    
+    func onboardingPageItemColor(at index: Int) -> UIColor {
+        return .white
     }
     
     private func playSetupAudioClip(withfileName: String){

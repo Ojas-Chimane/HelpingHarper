@@ -57,6 +57,8 @@
 		26B7C005246AB0FD009DBDC4 /* Q4D3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 26B7BFE6246AB0FC009DBDC4 /* Q4D3.wav */; };
 		26B7C006246AB0FD009DBDC4 /* Q9D3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 26B7BFE7246AB0FD009DBDC4 /* Q9D3.wav */; };
 		26B7C007246AB0FD009DBDC4 /* Q5Q.wav in Resources */ = {isa = PBXBuildFile; fileRef = 26B7BFE8246AB0FD009DBDC4 /* Q5Q.wav */; };
+		26B97E782478FCCE00146E3E /* correct_answer.wav in Resources */ = {isa = PBXBuildFile; fileRef = 26B97E762478FCCE00146E3E /* correct_answer.wav */; };
+		26B97E792478FCCE00146E3E /* incorrect_answer.wav in Resources */ = {isa = PBXBuildFile; fileRef = 26B97E772478FCCE00146E3E /* incorrect_answer.wav */; };
 		26C0169C2466E33200C0B589 /* Q1D0.wav in Resources */ = {isa = PBXBuildFile; fileRef = 26C0169B2466E33100C0B589 /* Q1D0.wav */; };
 		26C0B1702442D8F900EC1471 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C0B16F2442D8F900EC1471 /* Question.swift */; };
 		26C0B1722442D94100EC1471 /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C0B1712442D94100EC1471 /* Topic.swift */; };
@@ -234,6 +236,8 @@
 		26B7BFE6246AB0FC009DBDC4 /* Q4D3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Q4D3.wav; sourceTree = "<group>"; };
 		26B7BFE7246AB0FD009DBDC4 /* Q9D3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Q9D3.wav; sourceTree = "<group>"; };
 		26B7BFE8246AB0FD009DBDC4 /* Q5Q.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Q5Q.wav; sourceTree = "<group>"; };
+		26B97E762478FCCE00146E3E /* correct_answer.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = correct_answer.wav; sourceTree = "<group>"; };
+		26B97E772478FCCE00146E3E /* incorrect_answer.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = incorrect_answer.wav; sourceTree = "<group>"; };
 		26C0169B2466E33100C0B589 /* Q1D0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Q1D0.wav; sourceTree = "<group>"; };
 		26C0B16F2442D8F900EC1471 /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		26C0B1712442D94100EC1471 /* Topic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
@@ -421,6 +425,8 @@
 			children = (
 				26F3972E247241550003D6AC /* loading-unicorn.json */,
 				26F3973024724ACD0003D6AC /* loading.json */,
+				26B97E762478FCCE00146E3E /* correct_answer.wav */,
+				26B97E772478FCCE00146E3E /* incorrect_answer.wav */,
 				262FE48C246EC81C00C96DD7 /* rainy-sun.wav */,
 				26F7EC5F245FEE0000567FFA /* in-a-dream.wav */,
 				26F3973624734DCB0003D6AC /* E1.wav */,
@@ -822,6 +828,7 @@
 				26F3972A247213B70003D6AC /* S3Q3Q.wav in Resources */,
 				26F39713247213B70003D6AC /* S3Q10Q.wav in Resources */,
 				26F39721247213B70003D6AC /* S3Q2D1.wav in Resources */,
+				26B97E792478FCCE00146E3E /* incorrect_answer.wav in Resources */,
 				26F39729247213B70003D6AC /* S3Q8D1.wav in Resources */,
 				26B7BFF4246AB0FD009DBDC4 /* Q10D3.wav in Resources */,
 				26B7BFEB246AB0FD009DBDC4 /* Q4D1.wav in Resources */,
@@ -882,6 +889,7 @@
 				26F396CC2470FE320003D6AC /* S2Q10Q.wav in Resources */,
 				26F3971B247213B70003D6AC /* S3Q6D1.wav in Resources */,
 				26B7BFF2246AB0FD009DBDC4 /* Q5D1.wav in Resources */,
+				26B97E782478FCCE00146E3E /* correct_answer.wav in Resources */,
 				26F396CA2470FE320003D6AC /* S2Q8Q.wav in Resources */,
 				26F396C52470FE320003D6AC /* S2Q6D1.wav in Resources */,
 				26F3972F247241560003D6AC /* loading-unicorn.json in Resources */,
