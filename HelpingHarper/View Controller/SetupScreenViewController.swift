@@ -80,6 +80,7 @@ class SetupScreenViewController: UIViewController,PaperOnboardingDataSource,Pape
         alertVC.addAction(PMAlertAction(title: "Quit Story👋😴", style: .default, action: { ()
             self.dismiss(animated: false, completion: {
                     self.presentingController?.dismiss(animated: false)
+                    Sound.stopAll()
                })
         }))
         alertVC.addAction(PMAlertAction(title: "Resume✊", style: .default, action: { ()

@@ -150,7 +150,7 @@ class QuestionViewController: UIViewController {
             
             button.tag = set.first?.answerList[i].ans_id ?? i
             button.addTarget(self, action: #selector(self.verifyButton), for: .touchDown)
-            button.titleLabel?.font = UIFont(name: "Chalkduster", size: 18)!
+            button.titleLabel?.font = UIFont(name: Fonts.customFont, size: 18)!
             button.tintColor = .black
             self.answerButtons.append(button)
             self.answersStackView.addArrangedSubview(button)
@@ -192,7 +192,7 @@ class QuestionViewController: UIViewController {
             self.audioList.removeAll()
             
             for setup in quiz0.element.questionSetupList{
-                let titleFont = UIFont(name: "Chalkduster", size: 22)!
+                let titleFont = UIFont(name: Fonts.customCerealAppBookFont, size: 22)!
                 
                 let itemOne = OnboardingItemInfo(informationImage: UIImage(named: setup.setup_img_URL.trimmingCharacters(in: .whitespacesAndNewlines)) ?? UIImage(), title: "", description: setup.setup_desc, pageIcon: UIImage(), color: backgroundColorOne, titleColor: backgroundColorTwo, descriptionColor: backgroundColorTwo, titleFont: titleFont, descriptionFont: titleFont)
                 self.setupScreenList.append(itemOne)
@@ -367,7 +367,7 @@ class QuestionViewController: UIViewController {
     
     private func endOfQuestionsAlert() {
        
-        let titleFont = UIFont(name: "Chalkduster", size: 22)!
+        let titleFont = UIFont(name: Fonts.customFont, size: 22)!
         
         if ((self.repeatTimes < 2) && !isSetCompleted()) {
             self.repeatActionDetailed()

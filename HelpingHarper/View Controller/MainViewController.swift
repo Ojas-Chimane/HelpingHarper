@@ -26,6 +26,11 @@ class MainViewController: UIViewController {
         hhHomePageImageView?.layer.borderColor = UIColor.white.cgColor
         
        initializeBackgroundSound()
+        
+        for family in UIFont.familyNames.sorted(){
+            let names = UIFont.fontNames(forFamilyName: family)
+            print("Family: \(family) Font names: \(names)")
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {

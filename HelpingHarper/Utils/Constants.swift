@@ -24,3 +24,8 @@ struct Constants{
     
     
 }
+
+struct Fonts{
+    static let customFont = "AirbnbCerealApp-Medium"
+     static let customCerealAppBookFont = "AirbnbCerealApp-Book"
+}
