@@ -26,11 +26,6 @@ class MainViewController: UIViewController {
         hhHomePageImageView?.layer.borderColor = UIColor.white.cgColor
         
        initializeBackgroundSound()
-        
-        for family in UIFont.familyNames.sorted(){
-            let names = UIFont.fontNames(forFamilyName: family)
-            print("Family: \(family) Font names: \(names)")
-        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -45,7 +40,7 @@ class MainViewController: UIViewController {
         
         let backgroundColorOne = UIColor(red: 236/255, green: 210/255, blue: 175/255, alpha: 1)
         let backgroundColorTwo = UIColor(red: 37/255, green: 37/255, blue: 42/255, alpha: 1)
-        let titleFont = UIFont(name: "Chalkduster", size: 22)!
+        let titleFont = UIFont(name: Fonts.customCerealAppBookFont, size: 22)!
         
         let itemOne = OnboardingItemInfo(informationImage: UIImage(named: "Helping Harper") ?? UIImage(), title: "", description: "Hi! 👋🏻 I'm Harper. I like playing in the water. 🏄‍♀️🏊‍♀️🤽‍♀️🚣‍♀️Come help me make good decisions around water so we can have fun! 🌊😄", pageIcon: UIImage(), color: backgroundColorOne, titleColor: backgroundColorTwo, descriptionColor: backgroundColorTwo, titleFont: titleFont, descriptionFont: titleFont)
         
@@ -61,10 +56,8 @@ class MainViewController: UIViewController {
     }
     
     private func invokeSetupScreen(){
-        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SETUP_SCREEN_IDENTIFIER") as? SetupScreenViewController
-        {
+        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SETUP_SCREEN_IDENTIFIER") as? SetupScreenViewController{
             vc.modalPresentationStyle = .fullScreen
-            
             vc.onBoardList = self.setupScreenList
             present(vc, animated: true, completion: nil)
         }

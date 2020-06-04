@@ -334,13 +334,17 @@ class QuestionViewController: UIViewController {
         self.setupScreenList.removeAll()
         self.audioList.removeAll()
         
+        var updatedScore = score
+        
+        if updatedScore <= 0 {updatedScore = 0}
+        
         if selectedStoryId == 1{
-            let item = OnboardingItemInfo(informationImage: UIImage(named: "Q9D1 Square") ?? UIImage(), title: "Your Score: \(score)", description: "Hooray!🎉🎉🎉 Although it has been a long day, Harper and her family left the beach safely. 🏠🎉🎉😃", pageIcon: UIImage(), color: backgroundColorOne, titleColor: backgroundColorTwo, descriptionColor: backgroundColorTwo, titleFont: titleFont, descriptionFont: titleFont)
+            let item = OnboardingItemInfo(informationImage: UIImage(named: "Q9D1 Square") ?? UIImage(), title: "Your Score: \(updatedScore)/100", description: "Hooray!🎉🎉🎉 Although it has been a long day, Harper and her family left the beach safely. 🏠🎉🎉😃", pageIcon: UIImage(), color: backgroundColorOne, titleColor: backgroundColorTwo, descriptionColor: backgroundColorTwo, titleFont: titleFont, descriptionFont: titleFont)
             self.setupScreenList.append(item)
             self.audioList.append("E1")
         }else if selectedStoryId == 2{
-            let itemOne = OnboardingItemInfo(informationImage: UIImage(named: "S2E1") ?? UIImage(), title: "Your Score: \(score)", description: "It turns out the person asking for help was having a cramp in the leg while swimming because he didn’t warm up beforehand. Thankfully the lifeguard brought him back on the shore safely.", pageIcon: UIImage(), color: backgroundColorOne, titleColor: backgroundColorTwo, descriptionColor: backgroundColorTwo, titleFont: titleFont, descriptionFont: titleFont)
-            let itemTwo = OnboardingItemInfo(informationImage: UIImage(named: "S2E2") ?? UIImage(), title: "Your Score: \(score)", description: "It’s getting darker on the island. Harper says goodbye to Yuni and Jimmy, and Pico sends her back home through the purle portal", pageIcon: UIImage(), color: backgroundColorOne, titleColor: backgroundColorTwo, descriptionColor: backgroundColorTwo, titleFont: titleFont, descriptionFont: titleFont)
+            let itemOne = OnboardingItemInfo(informationImage: UIImage(named: "S2E1") ?? UIImage(), title: "Your Score: \(updatedScore)/100", description: "It turns out the person asking for help was having a cramp in the leg while swimming because he didn’t warm up beforehand. Thankfully the lifeguard brought him back on the shore safely.", pageIcon: UIImage(), color: backgroundColorOne, titleColor: backgroundColorTwo, descriptionColor: backgroundColorTwo, titleFont: titleFont, descriptionFont: titleFont)
+            let itemTwo = OnboardingItemInfo(informationImage: UIImage(named: "S2E2") ?? UIImage(), title: "Your Score: \(updatedScore)/100", description: "It’s getting darker on the island. Harper says goodbye to Yuni and Jimmy, and Pico sends her back home through the purple portal", pageIcon: UIImage(), color: backgroundColorOne, titleColor: backgroundColorTwo, descriptionColor: backgroundColorTwo, titleFont: titleFont, descriptionFont: titleFont)
             
             self.setupScreenList.append(itemOne)
             self.setupScreenList.append(itemTwo)
@@ -348,11 +352,11 @@ class QuestionViewController: UIViewController {
             self.audioList.append("S2E2")
             
         }else if selectedStoryId == 3{
-            let itemOne = OnboardingItemInfo(informationImage: UIImage(named: "S3E1") ?? UIImage(), title: "Your Score: \(score)", description: "Harper asks for three things: a sand castle that will never break, a storm in a bottle and a piece of marshmellow cloud. 🛕⚡☁️", pageIcon: UIImage(), color: backgroundColorOne, titleColor: backgroundColorTwo, descriptionColor: backgroundColorTwo, titleFont: titleFont, descriptionFont: titleFont)
+            let itemOne = OnboardingItemInfo(informationImage: UIImage(named: "S3E1") ?? UIImage(), title: "Your Score: \(updatedScore)/100", description: "Harper asks for three things: a sand castle that will never break, a storm in a bottle and a piece of marshmellow cloud. 🛕⚡☁️", pageIcon: UIImage(), color: backgroundColorOne, titleColor: backgroundColorTwo, descriptionColor: backgroundColorTwo, titleFont: titleFont, descriptionFont: titleFont)
             
-            let itemTwo = OnboardingItemInfo(informationImage: UIImage(named: "S3E2") ?? UIImage(), title: "Your Score: \(score)", description: "After Harper makes her wishes, she can feel the wind gently stroking her and carrying her up from the ground. In the blink of an eye she is in her bedroom again 🛏️", pageIcon: UIImage(), color: backgroundColorOne, titleColor: backgroundColorTwo, descriptionColor: backgroundColorTwo, titleFont: titleFont, descriptionFont: titleFont)
+            let itemTwo = OnboardingItemInfo(informationImage: UIImage(named: "S3E2") ?? UIImage(), title: "Your Score: \(updatedScore)/100", description: "After Harper makes her wishes, she can feel the wind gently stroking her and carrying her up from the ground. In the blink of an eye she is in her bedroom again 🛏️", pageIcon: UIImage(), color: backgroundColorOne, titleColor: backgroundColorTwo, descriptionColor: backgroundColorTwo, titleFont: titleFont, descriptionFont: titleFont)
             
-            let itemThree = OnboardingItemInfo(informationImage: UIImage(named: "S3E3") ?? UIImage(), title: "Your Score: \(score)", description: "Sweet dreams, Harper, your wishes will come true when you wake up in the morning 🛌🌌", pageIcon: UIImage(), color: backgroundColorOne, titleColor: backgroundColorTwo, descriptionColor: backgroundColorTwo, titleFont: titleFont, descriptionFont: titleFont)
+            let itemThree = OnboardingItemInfo(informationImage: UIImage(named: "S3E3") ?? UIImage(), title: "Your Score: \(updatedScore)/100", description: "Sweet dreams, Harper, your wishes will come true when you wake up in the morning 🛌🌌", pageIcon: UIImage(), color: backgroundColorOne, titleColor: backgroundColorTwo, descriptionColor: backgroundColorTwo, titleFont: titleFont, descriptionFont: titleFont)
             
             self.setupScreenList.append(itemOne)
             self.setupScreenList.append(itemTwo)

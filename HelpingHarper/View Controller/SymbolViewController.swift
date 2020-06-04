@@ -13,15 +13,17 @@ class SymbolViewController: UIViewController {
     
     private var symbolList = [Symbol]()
     @IBOutlet weak var symbolTableView: UITableView!
+    var symbolId: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSymbolData()
+        print("Symbol ID: \(symbolId)")
     }
     
     private func setupSymbolData() {
         
-        guard let urlToExecute  = URL(string: Constants.baseURL+"/getAllSymbols") else {
+        guard let urlToExecute  = URL(string: Constants.baseURL+"/getAllSymbols/\(symbolId!)") else {
             return
         }
         

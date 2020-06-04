@@ -204,7 +204,7 @@
         <!--Revision-->
         <scene sceneID="Puo-aU-te8">
             <objects>
-                <viewController id="BAM-c8-8qU" sceneMemberID="viewController">
+                <viewController id="BAM-c8-8qU" customClass="RevisionVC" customModule="Helping_Harper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wg8-6i-93H">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -219,10 +219,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q5d-Eu-xda">
-                                <rect key="frame" x="16" y="152" width="382" height="250"/>
+                                <rect key="frame" x="16" y="152" width="382" height="150"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="250" id="EFW-Wf-DAu"/>
+                                    <constraint firstAttribute="height" constant="150" id="EFW-Wf-DAu"/>
                                 </constraints>
                                 <string key="text">• Drowning is the 3rd leading cause of injury-related life lost worldwide.                                         • Children and males are most at risk of drowning. </string>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -230,13 +230,32 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Idg-VE-0KJ" customClass="RoundedButton" customModule="Helping_Harper" customModuleProvider="target">
-                                <rect key="frame" x="16" y="426.5" width="382" height="40"/>
-                                <color key="backgroundColor" red="0.1309746802" green="0.62946695090000004" blue="0.975892961" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="16" y="358" width="382" height="40"/>
+                                <color key="backgroundColor" red="0.9916604161" green="0.74856311080000004" blue="0.31163841489999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="ceX-RS-5n1"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AirbnbCerealApp-Black" family="Airbnb Cereal App" pointSize="17"/>
-                                <state key="normal" title="  🚸 Read about Symbols here...">
+                                <state key="normal" title="  🚸 Beach Flags">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onBeachFlagButtonTapped:" destination="BAM-c8-8qU" eventType="touchUpInside" id="mHt-iT-GKv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dYs-vV-5et" customClass="RoundedButton" customModule="Helping_Harper" customModuleProvider="target">
+                                <rect key="frame" x="16" y="406" width="382" height="40"/>
+                                <color key="backgroundColor" red="0.925935328" green="0.16284155850000001" blue="0.17798873779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="LB6-ET-Pgi"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AirbnbCerealApp-Black" family="Airbnb Cereal App" pointSize="17"/>
+                                <state key="normal" title="  🚸 Red Symbols">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -245,35 +264,87 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="S4D-m0-1f8" kind="show" id="FuZ-nn-hMR"/>
+                                    <action selector="onRedButtonTapped:" destination="BAM-c8-8qU" eventType="touchUpInside" id="Lff-Ms-DDB"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bBk-in-Jot">
-                                <rect key="frame" x="32" y="418" width="366" height="0.5"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cRd-oP-lhD" customClass="RoundedButton" customModule="Helping_Harper" customModuleProvider="target">
+                                <rect key="frame" x="16" y="454" width="382" height="40"/>
+                                <color key="backgroundColor" red="1" green="0.88353174919999999" blue="0.320738256" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Vnh-8b-rxB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AirbnbCerealApp-Black" family="Airbnb Cereal App" pointSize="17"/>
+                                <state key="normal" title="  🚸 Yellow Symbols">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onYellowButtonTapped:" destination="BAM-c8-8qU" eventType="touchUpInside" id="1RX-3A-5fE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xfn-iA-cnK" customClass="RoundedButton" customModule="Helping_Harper" customModuleProvider="target">
+                                <rect key="frame" x="16" y="502" width="382" height="40"/>
                                 <color key="backgroundColor" red="0.1309746802" green="0.62946695090000004" blue="0.975892961" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="0.5" id="kk1-kB-gSu"/>
+                                    <constraint firstAttribute="height" constant="40" id="r35-hr-cUq"/>
                                 </constraints>
-                            </view>
+                                <fontDescription key="fontDescription" name="AirbnbCerealApp-Black" family="Airbnb Cereal App" pointSize="17"/>
+                                <state key="normal" title="  🚸 Blue Symbols">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onBlueButtonTapped:" destination="BAM-c8-8qU" eventType="touchUpInside" id="ouq-cx-sgu"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Symbols" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zh5-TN-7N4">
+                                <rect key="frame" x="16" y="310" width="382" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="qOE-QL-76T"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AirbnbCerealApp-Black" family="Airbnb Cereal App" pointSize="24"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.90816897149999998" green="0.82639545199999997" blue="0.70193976160000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="wJH-4g-dkD" firstAttribute="trailing" secondItem="q5d-Eu-xda" secondAttribute="trailing" constant="16" id="2mT-q0-lAa"/>
+                            <constraint firstItem="cRd-oP-lhD" firstAttribute="top" secondItem="dYs-vV-5et" secondAttribute="bottom" constant="8" id="7k9-Ih-IaY"/>
+                            <constraint firstItem="dYs-vV-5et" firstAttribute="top" secondItem="Idg-VE-0KJ" secondAttribute="bottom" constant="8" id="8wM-aZ-mHP"/>
+                            <constraint firstItem="Zh5-TN-7N4" firstAttribute="top" secondItem="q5d-Eu-xda" secondAttribute="bottom" constant="8" id="AbL-zQ-Vcb"/>
                             <constraint firstItem="5SL-Ji-wTE" firstAttribute="leading" secondItem="wJH-4g-dkD" secondAttribute="leading" constant="16" id="CGH-pA-bMo"/>
+                            <constraint firstItem="wJH-4g-dkD" firstAttribute="trailing" secondItem="Zh5-TN-7N4" secondAttribute="trailing" constant="16" id="DBn-Uv-NDp"/>
+                            <constraint firstItem="cRd-oP-lhD" firstAttribute="leading" secondItem="wJH-4g-dkD" secondAttribute="leading" constant="16" id="DM2-Ha-87o"/>
+                            <constraint firstItem="Idg-VE-0KJ" firstAttribute="top" secondItem="Zh5-TN-7N4" secondAttribute="bottom" constant="8" id="E1H-vo-8Ho"/>
+                            <constraint firstItem="xfn-iA-cnK" firstAttribute="top" secondItem="cRd-oP-lhD" secondAttribute="bottom" constant="8" id="FF3-CE-opc"/>
                             <constraint firstItem="wJH-4g-dkD" firstAttribute="trailing" secondItem="5SL-Ji-wTE" secondAttribute="trailing" constant="16" id="GtA-p8-nb7"/>
-                            <constraint firstItem="Idg-VE-0KJ" firstAttribute="top" secondItem="bBk-in-Jot" secondAttribute="bottom" constant="8" id="ImI-No-MBe"/>
                             <constraint firstItem="5SL-Ji-wTE" firstAttribute="top" secondItem="wJH-4g-dkD" secondAttribute="top" constant="16" id="MWF-z4-Kub"/>
-                            <constraint firstItem="bBk-in-Jot" firstAttribute="leading" secondItem="wJH-4g-dkD" secondAttribute="leading" constant="32" id="P9x-0F-XEQ"/>
                             <constraint firstItem="q5d-Eu-xda" firstAttribute="top" secondItem="5SL-Ji-wTE" secondAttribute="bottom" constant="8" id="QRH-GP-Uil"/>
-                            <constraint firstItem="wJH-4g-dkD" firstAttribute="trailing" secondItem="bBk-in-Jot" secondAttribute="trailing" constant="16" id="bnO-xj-gY8"/>
+                            <constraint firstItem="dYs-vV-5et" firstAttribute="leading" secondItem="wJH-4g-dkD" secondAttribute="leading" constant="16" id="YFi-uK-lSn"/>
+                            <constraint firstItem="Zh5-TN-7N4" firstAttribute="leading" secondItem="wJH-4g-dkD" secondAttribute="leading" constant="16" id="cV0-xW-BYo"/>
                             <constraint firstItem="wJH-4g-dkD" firstAttribute="trailing" secondItem="Idg-VE-0KJ" secondAttribute="trailing" constant="16" id="djV-RP-TKK"/>
+                            <constraint firstItem="wJH-4g-dkD" firstAttribute="trailing" secondItem="xfn-iA-cnK" secondAttribute="trailing" constant="16" id="eNF-qM-dDy"/>
+                            <constraint firstItem="xfn-iA-cnK" firstAttribute="leading" secondItem="wJH-4g-dkD" secondAttribute="leading" constant="16" id="hsC-zS-MQl"/>
                             <constraint firstItem="q5d-Eu-xda" firstAttribute="leading" secondItem="wJH-4g-dkD" secondAttribute="leading" constant="16" id="o85-Xp-JKX"/>
-                            <constraint firstItem="bBk-in-Jot" firstAttribute="top" secondItem="q5d-Eu-xda" secondAttribute="bottom" constant="16" id="sqY-gh-JtU"/>
                             <constraint firstItem="Idg-VE-0KJ" firstAttribute="leading" secondItem="wJH-4g-dkD" secondAttribute="leading" constant="16" id="uAU-gc-a2S"/>
+                            <constraint firstItem="wJH-4g-dkD" firstAttribute="trailing" secondItem="cRd-oP-lhD" secondAttribute="trailing" constant="16" id="yDJ-7T-obA"/>
+                            <constraint firstItem="wJH-4g-dkD" firstAttribute="trailing" secondItem="dYs-vV-5et" secondAttribute="trailing" constant="16" id="zZd-fT-qRO"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wJH-4g-dkD"/>
                     </view>
                     <navigationItem key="navigationItem" title="Revision" id="UhK-kN-cVR"/>
+                    <connections>
+                        <segue destination="S4D-m0-1f8" kind="show" identifier="symbols_segue" id="aJb-yE-zM6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="URi-P0-kdK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
