@@ -5,9 +5,9 @@
 The game is designed to teach children essential water safety skills through engaging and interactive gameplay. By presenting safety concepts in a fun and accessible way, Helping Harper encourages young users to recognize and understand safety symbols and instructions related to water environments. Targeted towards young audiences, this project combines animation, child-friendly graphics, and intuitive challenges to maintain engagement while imparting life-saving knowledge.
 
 ## Screenshots
-| Safety Symbols                    | Story based Scenarios                     | Story                  | Gameplay                  |
-|-----------------------------------|-------------------------------------|---------------------------------|---------------------------------|
-| ![Simulator Screen Shot - iPhone 11 Pro Max - 2020-07-15 at 19 40 01](https://github.com/user-attachments/assets/1e58d1e9-d744-4e15-ad85-5966a2ec7b4e) | ![Simulator Screen Shot - iPhone 11 Pro Max - 2020-07-15 at 19 39 04](https://github.com/user-attachments/assets/b3a4325a-7095-4f90-bd83-33fe4bc710bc)    | ![Simulator Screen Shot - iPhone 11 Pro Max - 2020-05-23 at 16 05 58](https://github.com/user-attachments/assets/83965b1a-70de-4469-85b6-53b415acd635) | ![Simulator Screen Shot - iPhone 11 Pro Max - 2020-07-15 at 19 41 37](https://github.com/user-attachments/assets/5ce05fbc-ac47-4921-b716-1e9a38d6795f) |
+| Safety Symbols                    | Story                  | Gameplay                  |
+|-----------------------------------|---------------------------------|---------------------------------|
+| ![Simulator Screen Shot - iPhone 11 Pro Max - 2020-07-15 at 19 40 01](https://github.com/user-attachments/assets/1e58d1e9-d744-4e15-ad85-5966a2ec7b4e) | ![Simulator Screen Shot - iPhone 11 Pro Max - 2020-05-23 at 16 05 58](https://github.com/user-attachments/assets/83965b1a-70de-4469-85b6-53b415acd635) | ![Simulator Screen Shot - iPhone 11 Pro Max - 2020-07-15 at 19 41 37](https://github.com/user-attachments/assets/5ce05fbc-ac47-4921-b716-1e9a38d6795f) |
 
 
 
